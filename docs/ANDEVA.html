@@ -2032,6 +2032,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2062,10 +2063,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <a href="index.html" class="title">Introducción a la estadística inferencial</a>
 </div>
 <div class="nav-right">
-<a href="index.html">Página principal</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Clases
+Scripts
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
@@ -2116,6 +2116,16 @@ Clases
 </ul>
 </nav>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://drive.google.com/file/d/1C5eI5DHRbFvA9-9s32wBZIW-1aM3e0Bj/view">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar script</button>
+</a>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Andeva.pdf">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
 <h2 id="conceptos-básicos-del-análisis-de-la-varianza">Conceptos básicos del análisis de la varianza</h2>
 <p>La hipótesis nula en un análisis de la varianza tipo I común es:</p>
@@ -2137,7 +2147,7 @@ Clases
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>,<span class='va'>i</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>, <span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, col<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <p>¿Qué muestra esta gráfica? ¿A que equivale la suma de los trazos verticales?</p>
 <p><span class="math display">\[ SCT=\Sigma(y- \overline{y})^2\]</span></p>
@@ -2158,7 +2168,7 @@ Clases
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>8</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>,<span class='va'>i</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>promedios</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, <span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fl'>1</span>, lty<span class='op'>=</span><span class='fl'>6</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <p>¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos punteados verticales?</p>
 <p><span class="math display">\[SCE= \Sigma(y_1-\hat{y_1})^2 + \Sigma(y_2- \hat{y_2})^2\]</span></p>
@@ -2174,7 +2184,7 @@ Clases
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>, <span class='va'>i</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modelo</span><span class='op'>)</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <h1 id="c.1">C.1</h1>
 <h1 id="r.2">R.2</h1>
@@ -2253,7 +2263,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>f</span>,xlab<span class='op'>=</span><span class='st'>"factor F"</span>,ylab<span class='op'>=</span><span class='st'>"y"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <p>¿Cual es la conclusión? Ahora hacemos la crítica del modelo</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2262,7 +2272,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>modelo</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <p>y ahora lo ultimo</p>
 <div class="layout-chunk" data-layout="l-body">

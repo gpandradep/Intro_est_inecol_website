@@ -2032,6 +2032,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2062,10 +2063,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <a href="index.html" class="title">Introducción a la estadística inferencial</a>
 </div>
 <div class="nav-right">
-<a href="index.html">Página principal</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Clases
+Scripts
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
@@ -2111,6 +2111,16 @@ Clases
 </ul>
 </nav>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://drive.google.com/file/d/1fCabsHMNKMF5KAT79p7tIEkzZGyI4s9E/view">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar script</button>
+</a>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Phipot1.pdf">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
 <p>Veamos un ejemplo de prueba de hipótesis para una población (Crawley p.64). Estos son datos de Michelson (1978), de medidas tomadas para estimar la velocidad de la luz. Que ahora sabemos es cercano (299,990 km p seg).</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2126,7 +2136,7 @@ Clases
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>speed</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapob_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="Phunapob_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2142,7 +2152,7 @@ Clases
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>speed</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapob_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="Phunapob_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2150,7 +2160,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqline</a></span><span class='op'>(</span><span class='va'>speed</span>,lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapob_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Phunapob_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <p>La muestra no se distribuye de acuerdo a lo esperado normalmente (cosa que una prueba de t para una población asume), pero además ¿Creen que la población de referencia se distribuya de manera normal?</p>
 <p>No puede porque tiene el problema de que la vel de la luz no puede tomar valores negativos</p>

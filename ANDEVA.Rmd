@@ -6,6 +6,34 @@ title: "Script ANDEVA de una via"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r echo=FALSE}
+library(downloadthis)
+
+## Link del script
+download_link(
+  link = "https://drive.google.com/file/d/1C5eI5DHRbFvA9-9s32wBZIW-1aM3e0Bj/view",
+  button_label = "Descargar script",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+```{r echo=FALSE}
+## Link del script pdf
+download_link(
+  link = "https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Andeva.pdf",
+  button_label = "Descargar script en pdf",
+  button_type = "danger",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
+
 # R.1
 
 ## Conceptos básicos del análisis de la varianza

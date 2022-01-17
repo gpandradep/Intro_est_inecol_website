@@ -2032,6 +2032,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2062,10 +2063,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <a href="index.html" class="title">Introducción a la estadística inferencial</a>
 </div>
 <div class="nav-right">
-<a href="index.html">Página principal</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Clases
+Scripts
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
@@ -2124,6 +2124,16 @@ Clases
 <li><a href="#fin">Fin ———————————————————————</a></li>
 </ul>
 </nav>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://drive.google.com/file/d/16JJ-jX9yTzpHLX0MeQu4-dnyffObB2bg/view">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar script</button>
+</a>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Estimacion2.pdf">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
+</a>
 </div>
 <h1 id="r.1">R.1</h1>
 <h2 id="estimación-de-parámetros-de-tendencia-central">Estimación de parámetros de tendencia central</h2>
@@ -2272,7 +2282,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <p>¿cual es la clase modal aquí?</p>
 <p>Pero ahora queremos saber la media aritmética (el promedio) que es la suma de todos los valores dividido por n. ¿Que hago?</p>
@@ -2416,7 +2426,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>insectos</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2483,7 +2493,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span>,ylim<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
 </div>
 <p>Lo más fácil es decir de donde a donde va (el intervalo).</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2509,7 +2519,7 @@ Clases
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>11</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>,<span class='va'>i</span><span class='op'>)</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>,<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
 </div>
 <p>se usa la suma de cuadrados de la diferencia de cada valor con la media general como base. ¿Cómo lo calculamos?</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2563,7 +2573,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>tm</span>,<span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>}</span><span class='op'>}</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-33-1.png" width="624" /></p>
 </div>
 <p>Ahora pueden ver que la varianza poblacional puede estar muy mal estimada con tamaños de muestra pequeños. Y a medida que aumentamos el tamaño de muestra la probabilidad de que la estimación está muy lejos del parámetro disminuye. Esta es una razón más para elegir muy cuidadosamente el tamaño de muestra. En unas clases vamos a hablar de esto en el contexto de pruebas de hipótesis.</p>
 <h1 id="c.4">C.4</h1>
@@ -2579,7 +2589,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>tm</span>,<span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>/</span><span class='va'>tm</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>}</span><span class='op'>}</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-34-1.png" width="624" /></p>
 </div>
 <p>Veamos un ejemplo de la concentración de ozono en unos invernaderos</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2599,7 +2609,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span> <span class='op'>(</span><span class='va'>gardenC</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-35-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-37-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2669,7 +2679,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>gardenB</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>0.826</span><span class='op'>)</span>,<span class='fl'>0</span>, lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-39-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-41-1.png" width="624" /></p>
 </div>
 <p>los dejo que ustedes calculen aquellos de los invernaderos A y C.</p>
 <h1 id="c.6">C.6</h1>

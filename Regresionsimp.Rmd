@@ -6,6 +6,33 @@ title: "Script Modelos lineales"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r echo=FALSE}
+library(downloadthis)
+
+## Link del script
+download_link(
+  link = "https://drive.google.com/file/d/1prvtKjrGEDqbeSZKJ22ZANB_akZhv7t0/view",
+  button_label = "Descargar script",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+```{r echo=FALSE}
+## Link del script pdf
+download_link(
+  link = "https://github.com/gpandradep/Intro_est_inecol_website/blob/main/scripts/Regre.pdf",
+  button_label = "Descargar script en pdf",
+  button_type = "danger",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+```
 # R.1
 
 Llamo los datos, los coloco en un dataframe y convierto las columnas en

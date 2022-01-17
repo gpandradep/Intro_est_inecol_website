@@ -23,15 +23,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+<aside>
+
+![](https://centrosconacyt.mx/wp-content/themes/cp-child/img/logos/INECOL.jpg "Inecol"){width="182"}
+
+</aside>
+
 ## ¡Bienvenidos al curso!🙌
 
 Este es la página del curso de **Introducción a la estadística inferencial**, versión 2022.
 
-<aside>
-
-![](https://centrosconacyt.mx/wp-content/themes/cp-child/img/logos/INECOL.jpg "Inecol")
-
-</aside>
+![](https://memegenerator.net/img/instances/72683289/bienvenida-al-lado-oscuro.jpg){width="300"}
 
 # Cronograma del curso 📆
 
@@ -65,7 +67,6 @@ Recuerden que las bases de datos se encuentran en el material de clase
 
 **Monitor del curso 2022**
 
-Gabriel P. Andrade Ponce 
-📧 [gabriel.andrade\@posgrado.ecologia.edu.mx](mailto:gabriel.andrade@posgrado.ecologia.edu.mx){.email}
+Gabriel P. Andrade Ponce 📧 [gabriel.andrade\@posgrado.ecologia.edu.mx](mailto:gabriel.andrade@posgrado.ecologia.edu.mx){.email}
 
 **Edición de Scripts y página web**: Gabriel Andrade Ponce

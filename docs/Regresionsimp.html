@@ -2032,6 +2032,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2062,10 +2063,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <a href="index.html" class="title">Introducción a la estadística inferencial</a>
 </div>
 <div class="nav-right">
-<a href="index.html">Página principal</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Clases
+Scripts
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
@@ -2116,6 +2116,16 @@ Clases
 </ul>
 </nav>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://drive.google.com/file/d/1prvtKjrGEDqbeSZKJ22ZANB_akZhv7t0/view">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar script</button>
+</a>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://github.com/gpandradep/Intro_est_inecol_website/blob/main/scripts/Regre.pdf">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
 <p>Llamo los datos, los coloco en un dataframe y convierto las columnas en variables</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2133,7 +2143,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tannin</span>,<span class='va'>growth</span>,pch<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <p>¿La tendencia de la variable de respuesta es a incrementar o a disminuir con la explicatoria? tendencia a disminuir</p>
 <p>¿Es factible que los datos sean explicados por una línea horizontal? H0.</p>
@@ -2143,7 +2153,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>)</span>,<span class='fl'>0</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <p>La H0 no parece factible, entonces b es probablemente dif de 0 y negativa</p>
 <p>¿Si existe una tendencia es recta o curva? relación recta, entonces proponemos el modelo <span class="math inline">\(y=a+bx+e\)</span></p>
@@ -2160,7 +2170,7 @@ Clases
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>,<span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>,<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <p>La mejor recta ajustada por el método de mínimos cuadrados es aquella que minimiza la Suma de Cuadrados de las desviaciones de los valores de y de la línea ajustada <span class="math inline">\(\hat{y}\)</span>, <span class="math inline">\(SCE=\sum(y - \hat{y})^2\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2169,7 +2179,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>~</span><span class='va'>tannin</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2179,7 +2189,7 @@ Clases
 <span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, <span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, <span class='va'>ysomb</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <h1 id="c.2">C.2</h1>
 <h1 id="r.3">R.3</h1>
@@ -2196,7 +2206,7 @@ Clases
 <span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>tannin</span>, <span class='va'>growth</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <h1 id="c.3">C.3</h1>
 <h1 id="r.4">R.4</h1>
@@ -2250,7 +2260,7 @@ Residuals  8 108.89  13.611               </code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='va'>Nulo</span><span class='op'>$</span><span class='va'>coe</span>, <span class='fl'>0</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
 </div>
 <p>Es decir solo se ha ajustado la media que no ofrece información importante</p>
 <p>Agregamos el efecto del tannin</p>
@@ -2380,7 +2390,7 @@ F-statistic: 30.97 on 1 and 7 DF,  p-value: 0.0008461</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
 </div>
 <p>Examinamos un modelo sin el dato extremo:</p>
 <div class="layout-chunk" data-layout="l-body">

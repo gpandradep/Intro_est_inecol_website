@@ -7,7 +7,7 @@ library(downloadthis)
 
 ## Link del script
 download_link(
-  link = "https://drive.google.com/file/d/1phL3CEOt4HDS7PL4qUb_hftSCWAHAkuy/view?usp=sharing",
+  link = "https://drive.google.com/file/d/1phL3CEOt4HDS7PL4qUb_hftSCWAHAkuy/view",
   button_label = "Descargar script",
   button_type = "primary",
   has_icon = TRUE,
@@ -20,7 +20,7 @@ download_link(
 ```{r echo=FALSE}
 ## Link del script pdf
 download_link(
-  link = "https://drive.google.com/file/d/129wDQ-kC8MszD2DGzRABPZENvBdAz79m/view?usp=sharing",
+  link = "https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Estimacion1.pdf",
   button_label = "Descargar script en pdf",
   button_type = "danger",
   has_icon = TRUE,
