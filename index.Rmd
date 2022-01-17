@@ -15,9 +15,6 @@ author:
     orcid_id: 0000-0002-4929-8405
     
 date: Enero 16, 2022
-output:
-  distill::distill_article:
-    toc: true
 site: distill::distill_website
 ---
 
