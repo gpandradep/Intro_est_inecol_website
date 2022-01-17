@@ -5,8 +5,10 @@ description: |
 output_dir: "docs"
 navbar:
   right:
-    - text: "Clases"
-      menu:
+   - text: "Página principal"
+      href: index.html
+  - text: "Clases"
+    menu:
       - text: "Estimación 1"
         href: Estimacion1.html
       - text: "Estimación 2"
