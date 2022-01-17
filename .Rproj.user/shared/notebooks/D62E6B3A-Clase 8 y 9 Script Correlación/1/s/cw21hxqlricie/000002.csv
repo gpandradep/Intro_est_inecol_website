@@ -1,0 +1,3 @@
+"0","data<-read.table(""data/twosample.txt"",header=T)"
+"0","attach(data)"
+"0","data"

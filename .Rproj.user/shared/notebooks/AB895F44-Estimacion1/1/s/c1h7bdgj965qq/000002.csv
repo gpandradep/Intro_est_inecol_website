@@ -1,0 +1,5 @@
+"0","means<-numeric(10000)"
+"0","for (i in 0:10000){ "
+"0","  means[i]<- mean(runif(5)*10)}"
+"0","  "
+"0","hist(means,ylim=c(0,1600))"

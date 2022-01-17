@@ -1,0 +1,64 @@
+---
+title: "Script Prueba de hipótesis de una poblacion-bis"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# C.2
+
+Vamos a escribir una función para calcular sesgo.
+
+```{r}
+skew<-function(x){
+m3<-sum((x-mean(x))^3)/length(x)
+s3<-sqrt(var(x))^3
+m3/s3  }
+```
+
+
+veamos los datos skewdata
+
+```{r}
+data<-read.table("data/skewdata.txt",header=T)
+attach(data)
+names(data)
+```
+
+```{r}
+hist(values)
+```
+
+
+
+Calculemos el sesgo
+
+```{r}
+skew(values)
+```
+
+Ahora hagamos una prueba de t para determinar si hay sesgo respecto a lo esperado para una población de inferencia con distribución normal
+
+```{r}
+skew(values)/sqrt(6/length(values))
+1-pt(2.949,28)
+```
+
+¿Cual es la conclusión?.
+Efectivamente está más sesgado de los esperado normalmente, ¿que se puede hacer, si insistimos en cumplir con la normalidad?
+
+```{r}
+skew(sqrt(values))/sqrt(6/length(values))
+skew(log(values))/sqrt(6/length(values))
+```
+
+
+```{r}
+kurtosis<-function(x) {
+m4<-sum((x-mean(x))^4)/length(x)
+s4<-var(x)^2
+m4/s4 - 3  }
+kurtosis(values)
+kurtosis(values)/sqrt(24/length(values))
+```
