@@ -24,9 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <aside>
-
-![](https://centrosconacyt.mx/wp-content/themes/cp-child/img/logos/INECOL.jpg "Inecol"){width="182"}
-
+![](https://centrosconacyt.mx/wp-content/themes/cp-child/img/logos/INECOL.jpg "Inecol"){width="112"}
 </aside>
 
 ## ¡Bienvenidos al curso!🙌
