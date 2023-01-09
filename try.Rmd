@@ -1,0 +1,11 @@
+---
+title: "Videos Semana 2"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<https://drive.google.com/file/d/1J6ELC-oqQrsTNsTsSGfVGyV8iBELnJGG/view?usp=sharing>
+
+[![Clase 1](try)](https://drive.google.com/drive/u/1/folders/1CFpQOi2GSYuMGEtq1AmvWTIcA1tIWJX7)

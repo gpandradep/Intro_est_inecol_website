@@ -1,7 +1,7 @@
 ---
 title: "Introducción a la estadística inferencial"
 description: |
-  Página del curso en su versión 2022
+  Página del curso en su versión 2023
 author: 
   - name: Simoneta Negrete Yankelevich
     url: https://www.researchgate.net/profile/Simoneta-Negrete-Yankelevich 
@@ -23,35 +23,33 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-<aside>
-![](https://centrosconacyt.mx/wp-content/themes/cp-child/img/logos/INECOL.jpg "Inecol"){width="112"}
-</aside>
+<aside>![](https://centrosconacyt.mx/wp-content/themes/cp-child/img/logos/INECOL.jpg "Inecol"){width="112"}</aside>
 
 ## ¡Bienvenidos al curso!🙌
 
-Este es la página del curso de **Introducción a la estadística inferencial**, versión 2022.
+Este es la página del curso de **Introducción a la estadística inferencial**, versión 2023.
 
-![](https://memegenerator.net/img/instances/72683289/bienvenida-al-lado-oscuro.jpg){width="300"}
+![](https://i.pinimg.com/originals/d7/61/da/d761da18a809efc70ac8f631ff0150d1.jpg)
 
 # Cronograma del curso 📆
 
-[![](img/cronograma2022.png)](https://classroom.google.com/u/1/c/MTg5NDkxODYwMzY0/m/NDUxNzQ2Mzc1NzY3/details)
+[![Cronograma 2023](img/cronograma2023.png)](https://classroom.google.com/u/0/c/MTg5NDkxODYwMzY0/m/NTQxMTU1OTg4NjM5/details)
 
 # Material de la clase 📚
 
 El material del curso está disponible en la página de classroom, en las siguientes ligas
 
-1.  [Él papel de la estadística en la investigación](https://classroom.google.com/u/1/w/MTg5NDkxODYwMzY0/tc/MjcwNzUxODUyMTc2)
+1.  [Él papel de la estadística en la investigación](https://classroom.google.com/u/0/w/MTg5NDkxODYwMzY0/tc/MjcwNzUxODUyMTc2)
 
-2.  [Introducción al Lenguaje R](https://classroom.google.com/u/1/w/MTg5NDkxODYwMzY0/tc/MjcwNjMxMTc1ODkx)
+2.  [Introducción al Lenguaje R](https://classroom.google.com/u/0/w/MTg5NDkxODYwMzY0/tc/MjcwNjMxMTc1ODkx)
 
-3.  [Estimación 1 y 2](https://classroom.google.com/u/1/w/MTg5NDkxODYwMzY0/tc/MjcwODkyMzU4Mjk5)
+3.  [Estimación 1 y 2](https://classroom.google.com/u/0/w/MTg5NDkxODYwMzY0/tc/MjcwODkyMzU4Mjk5)
 
-4.  [Análisis exploratorios](https://classroom.google.com/u/1/w/MTg5NDkxODYwMzY0/tc/MjcwODkyMzU4NDM1)
+4.  [Análisis exploratorios](https://classroom.google.com/u/0/w/MTg5NDkxODYwMzY0/tc/MjcwODkyMzU4NDM1)
 
-5.  [Prueba de hipótesis 1 y 2](https://classroom.google.com/u/1/w/MTg5NDkxODYwMzY0/tc/MjcwODkyNTcyNTc5)
+5.  [Prueba de hipótesis 1 y 2](https://classroom.google.com/u/0/w/MTg5NDkxODYwMzY0/tc/MjcwODkyNTcyNTc5)
 
-6.  [Modelos lineales 1 y 2](https://classroom.google.com/u/1/w/MTg5NDkxODYwMzY0/tc/MjcwODkyNTcyODcx)
+6.  [Modelos lineales 1 y 2](https://classroom.google.com/u/0/w/MTg5NDkxODYwMzY0/tc/MjcwODkyNTcyODcx)
 
 # Scripts de clase 📊
 
@@ -63,8 +61,10 @@ Recuerden que las bases de datos se encuentran en el material de clase
 
 ## Adicional {.appendix}
 
-**Monitor del curso 2022**
+**Monitor del curso 2023**
 
 Gabriel P. Andrade Ponce 📧 [gabriel.andrade\@posgrado.ecologia.edu.mx](mailto:gabriel.andrade@posgrado.ecologia.edu.mx){.email}
 
 **Edición de Scripts y página web**: Gabriel Andrade Ponce
+
+Página hecha con la paquetería `distill` en RMarkdown

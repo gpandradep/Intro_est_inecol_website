@@ -1,13 +1,13 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 4,
+            "columnIndex": 2,
             "ascending": true
         },
         {
-            "columnIndex": 2,
+            "columnIndex": 4,
             "ascending": true
         }
     ],
-    "path": "D:/Inecol/Introduccion a la estadistica inferencial/website"
+    "path": "D:/Inecol/Introduccion a la estadistica inferencial/website/docs"
 }
