@@ -2031,7 +2031,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2084,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2105,14 +2119,16 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#r.1">R.1</a>
+<li><a href="#r.1" id="toc-r.1">R.1</a>
 <ul>
-<li><a href="#conceptos-básicos-del-análisis-de-la-varianza">Conceptos básicos del análisis de la varianza</a></li>
+<li><a href="#conceptos-básicos-del-análisis-de-la-varianza"
+id="toc-conceptos-básicos-del-análisis-de-la-varianza">Conceptos básicos
+del análisis de la varianza</a></li>
 </ul></li>
-<li><a href="#c.1">C.1</a></li>
-<li><a href="#r.2">R.2</a></li>
-<li><a href="#r.3">R.3</a></li>
-<li><a href="#fin">Fin</a></li>
+<li><a href="#c.1" id="toc-c.1">C.1</a></li>
+<li><a href="#r.2" id="toc-r.2">R.2</a></li>
+<li><a href="#r.3" id="toc-r.3">R.3</a></li>
+<li><a href="#fin" id="toc-fin">Fin</a></li>
 </ul>
 </nav>
 </div>
@@ -2126,12 +2142,26 @@ Scripts
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
+<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/anova.data.txt">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
-<h2 id="conceptos-básicos-del-análisis-de-la-varianza">Conceptos básicos del análisis de la varianza</h2>
+<h2 id="conceptos-básicos-del-análisis-de-la-varianza">Conceptos básicos
+del análisis de la varianza</h2>
 <p>La hipótesis nula en un análisis de la varianza tipo I común es:</p>
 <p><span class="math display">\[H0: m1 = m2 = m3 = ... = mk\]</span></p>
-<p>¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA? Por cierto esta es una prueba “omnibus”, es decir ¡prueba muchas cosas de un jalón!</p>
-<p>Para ver como es que opera el anova veamos el ejemplo que sigue: Tomemos un solo factor, “f”, con dos niveles y pongamos los datos en una gráfica simple, según el orden en el que fueron obtenidas las mediciones.</p>
+<p>¿Cómo es que esta hipótesis se pone a prueba en un ANDEVA? Por cierto
+esta es una prueba “omnibus”, es decir ¡prueba muchas cosas de un
+jalón!</p>
+<p>Para ver como es que opera el anova veamos el ejemplo que sigue:
+Tomemos un solo factor, “f”, con dos niveles y pongamos los datos en una
+gráfica simple, según el orden en el que fueron obtenidas las
+mediciones.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>anova</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"anova.data.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2147,18 +2177,24 @@ Scripts
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>,<span class='va'>i</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>, <span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, col<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<p>¿Qué muestra esta gráfica? ¿A que equivale la suma de los trazos verticales?</p>
-<p><span class="math display">\[ SCT=\Sigma(y- \overline{y})^2\]</span></p>
-<p>Ahora vamos a hacer exactamente lo mismo, pero ahora dividiendo por cada uno de los niveles del factor F. Incorporemos la información del factor “f”. Para esto hay que calcular los promedios de “y” que corresponden a los niveles de “f”</p>
+<p>¿Qué muestra esta gráfica? ¿A que equivale la suma de los trazos
+verticales?</p>
+<p><span class="math display">\[ SCT=\Sigma(y-
+\overline{y})^2\]</span></p>
+<p>Ahora vamos a hacer exactamente lo mismo, pero ahora dividiendo por
+cada uno de los niveles del factor F. Incorporemos la información del
+factor “f”. Para esto hay que calcular los promedios de “y” que
+corresponden a los niveles de “f”</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>promedios</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tapply.html'>tapply</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>f</span>, <span class='va'>mean</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
-<p>Grafiquemos esta nueva estructura de datos sobre la gráfica que ya tenemos</p>
+<p>Grafiquemos esta nueva estructura de datos sobre la gráfica que ya
+tenemos</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
@@ -2168,13 +2204,22 @@ Scripts
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>8</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>,<span class='va'>i</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>promedios</span><span class='op'>[</span><span class='fl'>2</span><span class='op'>]</span>, <span class='va'>y</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fl'>1</span>, lty<span class='op'>=</span><span class='fl'>6</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<p>¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos punteados verticales?</p>
-<p><span class="math display">\[SCE= \Sigma(y_1-\hat{y_1})^2 + \Sigma(y_2- \hat{y_2})^2\]</span></p>
-<p>Si las dos medias fueran iguales ¿cómo compararían estas dos gráficas?</p>
-<p>Si lo piensan tendrían que ser iguales porque las medias de los niveles del tratamiento se nivelarían a la misma altura. Si las medias son significativamente distintas ¿cual varianza sería mayor? la calculada con SCT o la calculada con SCE? Esta es la razón por la cual el ANDEVA compara medias a través de la comparación de varianzas!!!!</p>
-<p>¿Qué interpretación tiene la diferencia entre las dos sumas mencionadas arriba? Pues es precisamente la varianza explicada por el modelo. Esta diferencia se asocia con la siguiente gráfica:</p>
+<p>¿Qué muestra esta gráfica? ¿a que equivale la suma de los trazos
+punteados verticales?</p>
+<p><span class="math display">\[SCE= \Sigma(y_1-\hat{y_1})^2 +
+\Sigma(y_2- \hat{y_2})^2\]</span></p>
+<p>Si las dos medias fueran iguales ¿cómo compararían estas dos
+gráficas?</p>
+<p>Si lo piensan tendrían que ser iguales porque las medias de los
+niveles del tratamiento se nivelarían a la misma altura. Si las medias
+son significativamente distintas ¿cual varianza sería mayor? la
+calculada con SCT o la calculada con SCE? Esta es la razón por la cual
+el ANDEVA compara medias a través de la comparación de varianzas!!!!</p>
+<p>¿Qué interpretación tiene la diferencia entre las dos sumas
+mencionadas arriba? Pues es precisamente la varianza explicada por el
+modelo. Esta diferencia se asocia con la siguiente gráfica:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>modelo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>f</span><span class='op'>)</span>
@@ -2184,7 +2229,7 @@ Scripts
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>14</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>i</span>, <span class='va'>i</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modelo</span><span class='op'>)</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <h1 id="c.1">C.1</h1>
 <h1 id="r.2">R.2</h1>
@@ -2197,7 +2242,9 @@ Scripts
 </div>
 <pre><code>[1] 55.5</code></pre>
 </div>
-<p>La pregunta es cuanto de esta variación es explicada por diferencias entre las medias de A y B (niveles del factor F) y cuanto por el error</p>
+<p>La pregunta es cuanto de esta variación es explicada por diferencias
+entre las medias de A y B (niveles del factor F) y cuanto por el
+error</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>SCEa</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>f</span><span class='op'>==</span><span class='st'>"a"</span><span class='op'>]</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>f</span><span class='op'>==</span><span class='st'>"a"</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span><span class='op'>)</span>
@@ -2263,7 +2310,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>f</span>,xlab<span class='op'>=</span><span class='st'>"factor F"</span>,ylab<span class='op'>=</span><span class='st'>"y"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <p>¿Cual es la conclusión? Ahora hacemos la crítica del modelo</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2272,7 +2319,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>modelo</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
+<p><img src="ANDEVA_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
 <p>y ahora lo ultimo</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2303,9 +2350,11 @@ Residuals   12   24.0     2.0
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
-<p>La anova es una “Generalización” de t para poder comparar mas de dos medias. En realidad F=t^2</p>
+<p>La anova es una “Generalización” de t para poder comparar mas de dos
+medias. En realidad F=t^2</p>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

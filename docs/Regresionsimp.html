@@ -2031,7 +2031,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2084,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2105,14 +2119,14 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#r.1">R.1</a></li>
-<li><a href="#c.1">C.1</a></li>
-<li><a href="#r.2">R.2</a></li>
-<li><a href="#c.2">C.2</a></li>
-<li><a href="#r.3">R.3</a></li>
-<li><a href="#c.3">C.3</a></li>
-<li><a href="#r.4">R.4</a></li>
-<li><a href="#fin">Fin</a></li>
+<li><a href="#r.1" id="toc-r.1">R.1</a></li>
+<li><a href="#c.1" id="toc-c.1">C.1</a></li>
+<li><a href="#r.2" id="toc-r.2">R.2</a></li>
+<li><a href="#c.2" id="toc-c.2">C.2</a></li>
+<li><a href="#r.3" id="toc-r.3">R.3</a></li>
+<li><a href="#c.3" id="toc-c.3">C.3</a></li>
+<li><a href="#r.4" id="toc-r.4">R.4</a></li>
+<li><a href="#fin" id="toc-fin">Fin</a></li>
 </ul>
 </nav>
 </div>
@@ -2126,8 +2140,17 @@ Scripts
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
+<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/tannin.txt">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
-<p>Llamo los datos, los coloco en un dataframe y convierto las columnas en variables</p>
+<p>Llamo los datos, los coloco en un dataframe y convierto las columnas
+en variables</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>reg.data</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"tannin.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2143,26 +2166,36 @@ Scripts
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tannin</span>,<span class='va'>growth</span>,pch<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<p>¿La tendencia de la variable de respuesta es a incrementar o a disminuir con la explicatoria? tendencia a disminuir</p>
-<p>¿Es factible que los datos sean explicados por una línea horizontal? H0.</p>
+<p>¿La tendencia de la variable de respuesta es a incrementar o a
+disminuir con la explicatoria? tendencia a disminuir</p>
+<p>¿Es factible que los datos sean explicados por una línea horizontal?
+H0.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tannin</span>,<span class='va'>growth</span>,pch<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>)</span>,<span class='fl'>0</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
-<p>La H0 no parece factible, entonces b es probablemente dif de 0 y negativa</p>
-<p>¿Si existe una tendencia es recta o curva? relación recta, entonces proponemos el modelo <span class="math inline">\(y=a+bx+e\)</span></p>
-<p>¿La dispersión de los datos es uniforme a lo largo de la línea o cambia sistemáticamente con la variable explicatoria?. Dispersión muy uniforme, la ordenada al origen es dif de 0 entonces a es prob mayor que 0.</p>
-<p>¿A ojo cuales son los valores de a y b? Como podemos hacer este proceso sistemático y preciso?</p>
+<p>La H0 no parece factible, entonces b es probablemente dif de 0 y
+negativa</p>
+<p>¿Si existe una tendencia es recta o curva? relación recta, entonces
+proponemos el modelo <span class="math inline">\(y=a+bx+e\)</span></p>
+<p>¿La dispersión de los datos es uniforme a lo largo de la línea o
+cambia sistemáticamente con la variable explicatoria?. Dispersión muy
+uniforme, la ordenada al origen es dif de 0 entonces a es prob mayor que
+0.</p>
+<p>¿A ojo cuales son los valores de a y b? Como podemos hacer este
+proceso sistemático y preciso?</p>
 <h1 id="c.1">C.1</h1>
 <h1 id="r.2">R.2</h1>
-<p>Y la variación total de y es la dispersión de los datos alrededor de y barra.</p>
-<p>La Suma de Cuadrados Total es <span class="math inline">\(SCT= \sum(y-\overline{y})^2\)</span></p>
+<p>Y la variación total de y es la dispersión de los datos alrededor de
+y barra.</p>
+<p>La Suma de Cuadrados Total es <span class="math inline">\(SCT=
+\sum(y-\overline{y})^2\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tannin</span>,<span class='va'>growth</span>,pch<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>
@@ -2170,16 +2203,19 @@ Scripts
 <span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>,<span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>,<span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<p>La mejor recta ajustada por el método de mínimos cuadrados es aquella que minimiza la Suma de Cuadrados de las desviaciones de los valores de y de la línea ajustada <span class="math inline">\(\hat{y}\)</span>, <span class="math inline">\(SCE=\sum(y - \hat{y})^2\)</span></p>
+<p>La mejor recta ajustada por el método de mínimos cuadrados es aquella
+que minimiza la Suma de Cuadrados de las desviaciones de los valores de
+y de la línea ajustada <span class="math inline">\(\hat{y}\)</span>,
+<span class="math inline">\(SCE=\sum(y - \hat{y})^2\)</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tannin</span>,<span class='va'>growth</span>,pch<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span> 
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>~</span><span class='va'>tannin</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2189,11 +2225,12 @@ Scripts
 <span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>9</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, <span class='va'>tannin</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>growth</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>, <span class='va'>ysomb</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
 </div>
 <h1 id="c.2">C.2</h1>
 <h1 id="r.3">R.3</h1>
-<p>Ahora bien, una tercera cantidad es la Suma de Cuadrados de la Regresión (es decir del efecto de la variable predictora)</p>
+<p>Ahora bien, una tercera cantidad es la Suma de Cuadrados de la
+Regresión (es decir del efecto de la variable predictora)</p>
 <span class="math display">\[SCR = SCTotal - SCError\]</span>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2206,7 +2243,7 @@ Scripts
 <span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>tannin</span>, <span class='va'>growth</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
 <h1 id="c.3">C.3</h1>
 <h1 id="r.4">R.4</h1>
@@ -2260,9 +2297,10 @@ Residuals  8 108.89  13.611               </code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='va'>Nulo</span><span class='op'>$</span><span class='va'>coe</span>, <span class='fl'>0</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
-<p>Es decir solo se ha ajustado la media que no ofrece información importante</p>
+<p>Es decir solo se ha ajustado la media que no ofrece información
+importante</p>
 <p>Agregamos el efecto del tannin</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2324,7 +2362,8 @@ Residual standard error: 1.693 on 7 degrees of freedom
 Multiple R-squared:  0.8157,    Adjusted R-squared:  0.7893 
 F-statistic: 30.97 on 1 and 7 DF,  p-value: 0.0008461</code></pre>
 </div>
-<p>O bien pedimos la secuencia de ajustes, que produce estos cambios en devianza</p>
+<p>O bien pedimos la secuencia de ajustes, que produce estos cambios en
+devianza</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/anova.html'>anova</a></span><span class='op'>(</span><span class='va'>Nulo</span>, <span class='va'>Tanino</span><span class='op'>)</span>
@@ -2364,7 +2403,8 @@ Residual standard error: 1.693 on 7 degrees of freedom
 Multiple R-squared:  0.8157,    Adjusted R-squared:  0.7893 
 F-statistic: 30.97 on 1 and 7 DF,  p-value: 0.0008461</code></pre>
 </div>
-<p>Si queremos, podemos guardar los valores ajustados y los residuales en la base de datos:</p>
+<p>Si queremos, podemos guardar los valores ajustados y los residuales
+en la base de datos:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>reg.data</span><span class='op'>$</span><span class='va'>ajustados</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/fitted.values.html'>fitted.values</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span> 
@@ -2383,14 +2423,17 @@ F-statistic: 30.97 on 1 and 7 DF,  p-value: 0.0008461</code></pre>
 8      3      7  3.238889 -0.2388889
 9      3      8  2.022222  0.9777778</code></pre>
 </div>
-<p>Para inspeccionar qué tan bueno es el modelo existen algunos recursos gráficos donde se examinan la distribución de los residuales y los puntos extremos que que pueden “cargar” el valor numérico de los parámetros:</p>
+<p>Para inspeccionar qué tan bueno es el modelo existen algunos recursos
+gráficos donde se examinan la distribución de los residuales y los
+puntos extremos que que pueden “cargar” el valor numérico de los
+parámetros:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfcol<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-22-1.png" width="624" /></p>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
 <p>Examinamos un modelo sin el dato extremo:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2434,55 +2477,16 @@ F-statistic: 32.62 on 1 and 6 DF,  p-value: 0.001247</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span> 
 </code></pre>
 </div>
-<pre><code> [1] &quot;a&quot;                         &quot;A&quot;                        
- [3] &quot;adf&quot;                       &quot;airpoldf&quot;                 
- [5] &quot;airpoll&quot;                   &quot;anova&quot;                    
- [7] &quot;ap&quot;                        &quot;atipicosinf&quot;              
- [9] &quot;atipicossup&quot;               &quot;B&quot;                        
-[11] &quot;CocienteF&quot;                 &quot;colibries&quot;                
-[13] &quot;cor.mat&quot;                   &quot;corr&quot;                     
-[15] &quot;Cotainf&quot;                   &quot;Cotasup&quot;                  
-[17] &quot;data&quot;                      &quot;dataat&quot;                   
-[19] &quot;difmed&quot;                    &quot;EEA&quot;                      
-[21] &quot;EEB&quot;                       &quot;EEC&quot;                      
-[23] &quot;EEdifmed&quot;                  &quot;EEr&quot;                      
-[25] &quot;etiqueta&quot;                  &quot;i&quot;                        
-[27] &quot;IC95&quot;                      &quot;IC95t&quot;                    
-[29] &quot;iqSO2&quot;                     &quot;k&quot;                        
-[31] &quot;kurtosis&quot;                  &quot;loglog&quot;                   
-[33] &quot;logM&quot;                      &quot;logSO2&quot;                   
-[35] &quot;m&quot;                         &quot;means&quot;                    
-[37] &quot;media&quot;                     &quot;media.aritmetica&quot;         
-[39] &quot;MediaA&quot;                    &quot;MediaB&quot;                   
-[41] &quot;MediaC&quot;                    &quot;modelito&quot;                 
-[43] &quot;modelo&quot;                    &quot;n&quot;                        
-[45] &quot;nd&quot;                        &quot;nombres&quot;                  
-[47] &quot;Nulo&quot;                      &quot;numeros&quot;                  
-[49] &quot;ozone&quot;                     &quot;ozono&quot;                    
-[51] &quot;ozonoAB&quot;                   &quot;p&quot;                        
-[53] &quot;p1&quot;                        &quot;pairs&quot;                    
-[55] &quot;pearson&quot;                   &quot;promedios&quot;                
-[57] &quot;pruebat&quot;                   &quot;rangoscomb&quot;               
-[59] &quot;reg.data&quot;                  &quot;regmort&quot;                  
-[61] &quot;Remuestreo&quot;                &quot;s2A&quot;                      
-[63] &quot;s2B&quot;                       &quot;SCA&quot;                      
-[65] &quot;SCE&quot;                       &quot;SCEa&quot;                     
-[67] &quot;SCEb&quot;                      &quot;SCT&quot;                      
-[69] &quot;Sindat7&quot;                   &quot;skew&quot;                     
-[71] &quot;t.de.tablas.alfa.05.gl.18&quot; &quot;Tanino&quot;                   
-[73] &quot;te&quot;                        &quot;tm&quot;                       
-[75] &quot;total&quot;                     &quot;variance&quot;                 
-[77] &quot;veluz&quot;                     &quot;x&quot;                        
-[79] &quot;xv&quot;                        &quot;y&quot;                        
-[81] &quot;yord&quot;                      &quot;ysomb&quot;                    
-[83] &quot;yv&quot;                        &quot;yvals&quot;                    </code></pre>
+<pre><code>[1] &quot;i&quot;        &quot;modelito&quot; &quot;Nulo&quot;     &quot;reg.data&quot; &quot;Sindat7&quot;  &quot;Tanino&quot;  
+[7] &quot;ysomb&quot;   </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span>list<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span>all<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

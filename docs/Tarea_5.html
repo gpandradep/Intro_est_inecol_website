@@ -2032,6 +2032,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2126,9 +2127,17 @@ simple</a>
 </ul>
 </nav>
 </div>
+<p><em>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/pesoaves.txt">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="regresión-simple">Regresión simple</h1>
 <p>Los datos de masas esqueléticas y corporales (todas en kg) del
-archivo <code>avespeso.xls</code> fueron tomados al azar de un estudio
+archivo <code>pesoaves.txt</code> fueron tomados al azar de un estudio
 más amplio realizado por Prange et al. (1979, American Naturalist 113:
 103-122) donde analizaban la hipótesis de que las aves tienen esqueletos
 más ligeros que los mamíferos debido a su adaptación al vuelo. Las dos
@@ -2147,11 +2156,15 @@ un mamífero de 5 kg.</p></li>
 predichas) crees que se sostiene la hipótesis de los autores?</p></li>
 </ol>
 <h2 id="recuerda">Recuerda</h2>
-<p>• Realizar el análisis exploratorios (gráficos y tablas) pertinentes.
-• Ejecutar los análisis en R, por favor incluye únicamente las salidas
-del programa que son <strong>ESTRICTAMENTE NECESARIAS</strong> para
-respaldar tus decisiones -Es <strong>INÚTIL</strong> incluir en el
-reporte salidas del programa <strong>SIN INTERPRETACIÓN</strong>.</p>
+<ul>
+<li><p>• Realizar el análisis exploratorios (gráficos y tablas)
+pertinentes.</p></li>
+<li><p>Ejecutar los análisis en R, por favor incluye únicamente las
+salidas del programa que son <strong>ESTRICTAMENTE NECESARIAS</strong>
+para respaldar tus decisiones -</p></li>
+<li><p>Es <strong>INÚTIL</strong> incluir en el reporte salidas del
+programa <strong>SIN INTERPRETACIÓN</strong>.</p></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

@@ -2031,7 +2031,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2084,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2105,8 +2119,8 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#r.1">R.1</a></li>
-<li><a href="#fin">Fin</a></li>
+<li><a href="#r.1" id="toc-r.1">R.1</a></li>
+<li><a href="#fin" id="toc-fin">Fin</a></li>
 </ul>
 </nav>
 </div>
@@ -2120,8 +2134,17 @@ Scripts
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
+<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/twosample.txt">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
-<p>Vamos a ver una serie de datos para ver si existe una relación lineal entre ellos.</p>
+<p>Vamos a ver una serie de datos para ver si existe una relación lineal
+entre ellos.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"twosample.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2135,9 +2158,10 @@ Scripts
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Correlacion_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="Correlacion_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
-<p>Se acuerdan que necesitamos primero para calcular el coeficiente de correlación de pearson? Las varianzas individuales</p>
+<p>Se acuerdan que necesitamos primero para calcular el coeficiente de
+correlación de pearson? Las varianzas individuales</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
@@ -2228,7 +2252,8 @@ sample estimates:
       cor 
 0.9387684 </code></pre>
 </div>
-<p>¿Que nos falta?. Pues no sabemos si cumplimos con los supuestos. Veamos el de normalidad</p>
+<p>¿Que nos falta?. Pues no sabemos si cumplimos con los supuestos.
+Veamos el de normalidad</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
@@ -2236,15 +2261,20 @@ sample estimates:
 <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqnorm</a></span><span class='op'>(</span><span class='va'>y</span>, main<span class='op'>=</span><span class='st'>"Q-Q plot y"</span><span class='op'>)</span>; <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqline</a></span><span class='op'>(</span><span class='va'>y</span>, col <span class='op'>=</span> <span class='fl'>2</span>, lty <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Correlacion_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="Correlacion_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <p>¿Que opciones tengo?.</p>
 <ol type="1">
-<li><p>Hacer una prueba de sesgo y kurtosis para ver si estas desviaciones son significativas</p></li>
-<li><p>Si son significativas, puedo intentar transformaciones o puedo utilizar muchas de las otras pruebas de correlación que son robustas a la violación de este supuesto. <em>Vean Q y k p.76 y Crawley p.97-102.</em></p></li>
+<li><p>Hacer una prueba de sesgo y kurtosis para ver si estas
+desviaciones son significativas</p></li>
+<li><p>Si son significativas, puedo intentar transformaciones o puedo
+utilizar muchas de las otras pruebas de correlación que son robustas a
+la violación de este supuesto. <em>Vean Q y k p.76 y Crawley
+p.97-102.</em></p></li>
 </ol>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

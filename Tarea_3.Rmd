@@ -5,6 +5,24 @@ editor_options:
     wrap: 72
 ---
 
+*NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar*
+
+```{r echo=FALSE}
+library(downloadthis)
+
+## Link del script
+download_link(
+  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/light.txt",
+  button_label = "Descargar datos",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+
 # Remuestreo en pruebas de hipótesis con una muestra simple
 
 Estos son datos de Michelson (1978) de medidas tomadas para estimar la velocidad de la luz que ahora sabemos es (299,792.458 km p seg). 

@@ -2031,7 +2031,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2083,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2104,13 +2119,24 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#intervalos-de-confianza">Intervalos de confianza</a></li>
-<li><a href="#c.6">C.6</a></li>
+<li><a href="#intervalos-de-confianza"
+id="toc-intervalos-de-confianza">Intervalos de confianza</a></li>
+<li><a href="#c.6" id="toc-c.6">C.6</a></li>
 </ul>
 </nav>
 </div>
+<p><em>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/skewdata.txt">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="intervalos-de-confianza">Intervalos de confianza</h1>
-<p>Existe otra manera enteramente distinta de estimar intervalos de confianza, y esta es enteramente autoreferida. Se usa el método de remuestreo o bootstrapping. Veamos un cuerpo de datos.</p>
+<p>Existe otra manera enteramente distinta de estimar intervalos de
+confianza, y esta es enteramente autoreferida. Se usa el método de
+remuestreo o bootstrapping. Veamos un cuerpo de datos.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"skewdata.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2136,9 +2162,12 @@ Scripts
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2bis_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+<p><img src="Estimacion2bis_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<p>Ahora vamos a calcular los intervalos de confianza de remuestreo por quantiles a través de la función sample que remuestrea y la función quantile basados en la muestra. Ahora, la función construida creo que no existe, así que aquí la definimos.</p>
+<p>Ahora vamos a calcular los intervalos de confianza de remuestreo por
+quantiles a través de la función sample que remuestrea y la función
+quantile basados en la muestra. Ahora, la función construida creo que no
+existe, así que aquí la definimos.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Remuestreo</span><span class='op'>&lt;-</span><span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
@@ -2150,7 +2179,7 @@ Scripts
 </code></pre>
 </div>
 <pre><code>    2.5%    97.5% 
-24.86125 37.80309 </code></pre>
+24.89675 37.86573 </code></pre>
 </div>
 <p>Veamos como comparan con los IC normales</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2165,7 +2194,8 @@ Scripts
 </div>
 <pre><code>[1] 24.39885</code></pre>
 </div>
-<p>Vean ustedes porque elegimos 30 como una n buena para tamaño de las muestras repetidas</p>
+<p>Vean ustedes porque elegimos 30 como una n buena para tamaño de las
+muestras repetidas</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>60</span><span class='op'>)</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>60</span><span class='op'>)</span>,type<span class='op'>=</span><span class='st'>"n"</span>,xlab<span class='op'>=</span><span class='st'>"Tamaño de muestra"</span>,ylab<span class='op'>=</span><span class='st'>"IC remuestreo"</span><span class='op'>)</span>
@@ -2193,11 +2223,15 @@ Scripts
 <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='va'>xv</span>,<span class='va'>yv</span>,lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2bis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Estimacion2bis_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
-<p>Noten que no son exactamente simétricos. Esto hace que sean ligeramente sesgados. Existen otros dos métodos (por centiles y acelerados) que corrigen esto. También noten que para la distribución de t son más conservadores si el tamaño de muestra es pequeño.</p>
+<p>Noten que no son exactamente simétricos. Esto hace que sean
+ligeramente sesgados. Existen otros dos métodos (por centiles y
+acelerados) que corrigen esto. También noten que para la distribución de
+t son más conservadores si el tamaño de muestra es pequeño.</p>
 <h1 id="c.6">C.6</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

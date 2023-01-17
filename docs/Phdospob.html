@@ -2031,7 +2031,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2084,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2105,8 +2119,8 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#r.3">R.3</a></li>
-<li><a href="#fin">Fin</a></li>
+<li><a href="#r.3" id="toc-r.3">R.3</a></li>
+<li><a href="#fin" id="toc-fin">Fin</a></li>
 </ul>
 </nav>
 </div>
@@ -2120,8 +2134,18 @@ Scripts
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
+<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/gardens.txt">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="r.3">R.3</h1>
-<p>Volvamos al ejemplo de las concentraciones de ozono en los invernaderos y vamos a preguntarnos si el promedio de sus concentraciones de ozono es significativamente distinto</p>
+<p>Volvamos al ejemplo de las concentraciones de ozono en los
+invernaderos y vamos a preguntarnos si el promedio de sus
+concentraciones de ozono es significativamente distinto</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ozono</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"gardens.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2152,13 +2176,19 @@ Levels: A B</code></pre>
         xlab<span class='op'>=</span><span class='st'>"Invernadero"</span>,ylab<span class='op'>=</span><span class='st'>"Ozono"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phdospob_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Phdospob_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
-<p>Si usamos el ojimetro, parece ser que no sus medianas no son distintas porque los intervalos intercuartil no se sobrelapan. Ahora hagamos una prueba de t (para comparar las medias) a pie.</p>
+<p>Si usamos el ojimetro, parece ser que no sus medianas no son
+distintas porque los intervalos intercuartil no se sobrelapan. Ahora
+hagamos una prueba de t (para comparar las medias) a pie.</p>
 <p>¿Que necesitamos?</p>
 <ol type="1">
-<li><p>los grados de libertad. dijimos que para una prueba de dos poblaciones calculamos el total de observaciones (20) menos el num. de parámetros estimados antes de realizar la prueba (dos medias). Así que tenemos 18 g.l.</p></li>
-<li><p>Necesitamos calcualar las varianzas individuales de cada invernadero, para poder calcular la diferencia de EE.</p></li>
+<li><p>los grados de libertad. dijimos que para una prueba de dos
+poblaciones calculamos el total de observaciones (20) menos el num. de
+parámetros estimados antes de realizar la prueba (dos medias). Así que
+tenemos 18 g.l.</p></li>
+<li><p>Necesitamos calcualar las varianzas individuales de cada
+invernadero, para poder calcular la diferencia de EE.</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2178,11 +2208,17 @@ Levels: A B</code></pre>
 </div>
 <pre><code>[1] -3.872983</code></pre>
 </div>
-<p>Noten que podemos ignorar el signo de la t. Porque solo depende que cual media pusimos primero. El valor absoluto es lo que importa.</p>
+<p>Noten que podemos ignorar el signo de la t. Porque solo depende que
+cual media pusimos primero. El valor absoluto es lo que importa.</p>
 <ol start="4" type="1">
-<li>Ahora necesitamos el valor crítico de la distribución de t de referencia para determinar si aceptamos o rechazamos la hipótesis de que no hay diferenicas entre medias (que vienen de la misma población). Se trata de un problema de una o dos colas?</li>
+<li>Ahora necesitamos el valor crítico de la distribución de t de
+referencia para determinar si aceptamos o rechazamos la hipótesis de que
+no hay diferenicas entre medias (que vienen de la misma población). Se
+trata de un problema de una o dos colas?</li>
 </ol>
-<p>Como no me interesa cual es mayor o menor, ni tengo ninguna hipótesis de que invernadero debía tener mas o menos ozono, entonces es de dos colas, por lo tanto uso una probabilidad de?</p>
+<p>Como no me interesa cual es mayor o menor, ni tengo ninguna hipótesis
+de que invernadero debía tener mas o menos ozono, entonces es de dos
+colas, por lo tanto uso una probabilidad de?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/TDist.html'>qt</a></span><span class='op'>(</span><span class='fl'>0.975</span>,<span class='fl'>18</span><span class='op'>)</span>
@@ -2191,8 +2227,14 @@ Levels: A B</code></pre>
 <pre><code>[1] 2.100922</code></pre>
 </div>
 <p>¿Acepto o rechazo la hipótesis de que son iguales?</p>
-<p>En virtud de que el valor calculado es mayor que el valor crítico se rechaza la hipótesis nula. (recuerden más alto=rechazo Ho más bajo=acepto)</p>
-<p>Finalmente necesito saber cual es la probabilidad de que encuentre yo la diferencia entre estas dos muestras (o una más extrema) a pesar de que provienen de poblaciones con la misma media. Recuerden que es un problema de dos colas y por esa razón necesito calcular pt y después multiplicarlos por dos (para los dos extremos).</p>
+<p>En virtud de que el valor calculado es mayor que el valor crítico se
+rechaza la hipótesis nula. (recuerden más alto=rechazo Ho más
+bajo=acepto)</p>
+<p>Finalmente necesito saber cual es la probabilidad de que encuentre yo
+la diferencia entre estas dos muestras (o una más extrema) a pesar de
+que provienen de poblaciones con la misma media. Recuerden que es un
+problema de dos colas y por esa razón necesito calcular pt y después
+multiplicarlos por dos (para los dos extremos).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p</span><span class='op'>&lt;-</span><span class='fl'>2</span><span class='op'>*</span><span class='fu'><a href='https://rdrr.io/r/stats/TDist.html'>pt</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>3.872983</span>,<span class='fl'>18</span><span class='op'>)</span>
@@ -2201,7 +2243,8 @@ Levels: A B</code></pre>
 </div>
 <pre><code>[1] 0.00111454</code></pre>
 </div>
-<p>para calcular los intervalos de confianza para la diferencia medias</p>
+<p>para calcular los intervalos de confianza para la diferencia
+medias</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>difmed</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>gardenA</span><span class='op'>)</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>gardenB</span><span class='op'>)</span>
@@ -2256,8 +2299,14 @@ sample estimates:
 mean of x mean of y 
         3         5 </code></pre>
 </div>
-<p>Entonces reporto la concentración de ozono fue significativamente más alta en el invernadero B (5.0 ppm) que en el A(3.0ppm; <strong>t</strong>=3.87, <strong>p</strong>=0.001(dos colas), <strong>gl</strong>=18)</p>
-<p>Ahora, pudiéramos tener el problema de que las varianzas no son iguales. entonces antes de hacer una prueba de t, necesitamos preguntarnos si las varianzas son significativamente distintas. Comparemos las de los invernaderos B y C.</p>
+<p>Entonces reporto la concentración de ozono fue significativamente más
+alta en el invernadero B (5.0 ppm) que en el A(3.0ppm;
+<strong>t</strong>=3.87, <strong>p</strong>=0.001(dos colas),
+<strong>gl</strong>=18)</p>
+<p>Ahora, pudiéramos tener el problema de que las varianzas no son
+iguales. entonces antes de hacer una prueba de t, necesitamos
+preguntarnos si las varianzas son significativamente distintas.
+Comparemos las de los invernaderos B y C.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>gardenB</span><span class='op'>)</span>
@@ -2270,7 +2319,10 @@ mean of x mean of y
 </div>
 <pre><code>[1] 14.22222</code></pre>
 </div>
-<p>¿Se acuerdan que la distribución de F era la adecuada para comparar varianzas? la pregunta es, ¿cual es la probabilidad de que estas dos muestras hayan sido sacada de poblaciones que tienen la misma varianza? El valor de F es simplemente el cociente de las varianzas</p>
+<p>¿Se acuerdan que la distribución de F era la adecuada para comparar
+varianzas? la pregunta es, ¿cual es la probabilidad de que estas dos
+muestras hayan sido sacada de poblaciones que tienen la misma varianza?
+El valor de F es simplemente el cociente de las varianzas</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>CocienteF</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>gardenC</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>gardenB</span><span class='op'>)</span>
@@ -2279,7 +2331,10 @@ mean of x mean of y
 </div>
 <pre><code>[1] 10.66667</code></pre>
 </div>
-<p>Ahora comparo con la distribución de probabilidad de F para los grados de libertad correspondientes, y como no tengo ninguna idea de cual de las muestras debiera tener una varianza más alta, entonces es una prueba de dos colas.</p>
+<p>Ahora comparo con la distribución de probabilidad de F para los
+grados de libertad correspondientes, y como no tengo ninguna idea de
+cual de las muestras debiera tener una varianza más alta, entonces es
+una prueba de dos colas.</p>
 <p>Como F no es simétrica, necesito calcular ambos lados.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2294,7 +2349,8 @@ mean of x mean of y
 <pre><code>[1] 0.2483859</code></pre>
 </div>
 <p>¿Que concluyo?</p>
-<p>¿Cual es la probabilidad de que estas dos muestras provengan de poblaciones con la misma varianza?</p>
+<p>¿Cual es la probabilidad de que estas dos muestras provengan de
+poblaciones con la misma varianza?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fl'>2</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/stats/Fdist.html'>pf</a></span><span class='op'>(</span><span class='va'>CocienteF</span>,<span class='fl'>9</span>,<span class='fl'>9</span><span class='op'>)</span><span class='op'>)</span>
@@ -2320,8 +2376,12 @@ sample estimates:
 ratio of variances 
            0.09375 </code></pre>
 </div>
-<p>Ahora, si encontráramos que suponer que las poblaciones de las que provienen las muestras no se distribuyen de manera normal entonces tenemos la alternativa de la prueba de Wilcoxon de suma de rangos. Esta es idéntica en su sistema a la de los rangos signados. Veamos como</p>
-<p>Lo primero que hago es poner todas las observaciones en un mismo vector</p>
+<p>Ahora, si encontráramos que suponer que las poblaciones de las que
+provienen las muestras no se distribuyen de manera normal entonces
+tenemos la alternativa de la prueba de Wilcoxon de suma de rangos. Esta
+es idéntica en su sistema a la de los rangos signados. Veamos como</p>
+<p>Lo primero que hago es poner todas las observaciones en un mismo
+vector</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ozone</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>gardenA</span>,<span class='va'>gardenB</span><span class='op'>)</span>
@@ -2350,7 +2410,8 @@ ratio of variances
 <pre><code> [1]  6.0 10.5 10.5  6.0  2.5  6.0  1.0  6.0 15.0  2.5 15.0 15.0 18.5
 [14] 20.0 10.5 10.5  6.0 15.0 18.5 15.0</code></pre>
 </div>
-<p>Noten que para todos los valores repetidos se hace un promedio de los rangos que les tocan.</p>
+<p>Noten que para todos los valores repetidos se hace un promedio de los
+rangos que les tocan.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/tapply.html'>tapply</a></span><span class='op'>(</span><span class='va'>rangoscomb</span>,<span class='va'>etiqueta</span>,<span class='va'>sum</span><span class='op'>)</span>
@@ -2359,7 +2420,11 @@ ratio of variances
 <pre><code>  A   B 
  66 144 </code></pre>
 </div>
-<p>Finalmente uso el valor más pequeño (66) para compararlo con el valor de tablas para el etadístico W para n de 10 y 10 y un alfa del 5% (<strong>W</strong>=78). Como nuestro valor es <em><em>menor</em></em> (porque uso como referencia el mas pequeño del par que obtuve), entonces rechazo mi H0. Las Medias son significativamente distintas.</p>
+<p>Finalmente uso el valor más pequeño (66) para compararlo con el valor
+de tablas para el etadístico W para n de 10 y 10 y un alfa del 5%
+(<strong>W</strong>=78). Como nuestro valor es <em><em>menor</em></em>
+(porque uso como referencia el mas pequeño del par que obtuve), entonces
+rechazo mi H0. Las Medias son significativamente distintas.</p>
 <p>Ahora el automático.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2373,9 +2438,16 @@ data:  gardenA and gardenB
 W = 11, p-value = 0.002988
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
-<p>Las diferencias se deben a que R utiliza un algoritmo de aproximación para calcular valores de z. Es ligeramente distinto del tradicional que hicimos arriba. La mecánica es la misma. Noten la diferencia en las p de t y W. Wilcoxon es menos poderoso (95%). Pero es el correcto si las distribuciones son sesgadas. También es correcto si no lo son (aunque poco menos poderoso). t no es correcta si hay desviaciones sustanciales de la normalidad.</p>
+<p>Las diferencias se deben a que R utiliza un algoritmo de aproximación
+para calcular valores de z. Es ligeramente distinto del tradicional que
+hicimos arriba. La mecánica es la misma. Noten la diferencia en las p de
+t y W. Wilcoxon es menos poderoso (95%). Pero es el correcto si las
+distribuciones son sesgadas. También es correcto si no lo son (aunque
+poco menos poderoso). t no es correcta si hay desviaciones sustanciales
+de la normalidad.</p>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

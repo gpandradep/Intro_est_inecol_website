@@ -6,6 +6,24 @@ title: "Script estimacion 2_bis"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+*NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar*
+
+```{r echo=FALSE}
+library(downloadthis)
+
+## Link del script
+download_link(
+  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/skewdata.txt",
+  button_label = "Descargar datos",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+
 # Intervalos de confianza 
 
 Existe otra manera enteramente distinta de estimar intervalos de confianza, y esta es enteramente autoreferida. Se usa el método de remuestreo o bootstrapping. Veamos un cuerpo de datos.

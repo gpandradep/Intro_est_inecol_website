@@ -5,19 +5,56 @@ editor_options:
     wrap: 72
 ---
 
+*NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar*
+
+```{r echo=FALSE}
+library(downloadthis)
+
+## Link del script
+download_link(
+  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/pesoaves.txt",
+  button_label = "Descargar datos",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
 # Regresión simple
 
-Los datos de masas esqueléticas y corporales (todas en kg) del archivo `avespeso.xls` fueron tomados al azar de un estudio más amplio realizado por Prange et al. (1979, American Naturalist 113: 103-122) donde analizaban la hipótesis de que las aves tienen esqueletos más ligeros que los mamíferos debido a su adaptación al vuelo. Las dos primeras columnas correponden a masas de esqueleto y de cuerpo de aves respectivamente. Las dos últimas columnas a masas esquelética y corporal, respectivamente, de mamíferos.
+Los datos de masas esqueléticas y corporales (todas en kg) del archivo
+`pesoaves.txt` fueron tomados al azar de un estudio más amplio realizado
+por Prange et al. (1979, American Naturalist 113: 103-122) donde
+analizaban la hipótesis de que las aves tienen esqueletos más ligeros
+que los mamíferos debido a su adaptación al vuelo. Las dos primeras
+columnas correponden a masas de esqueleto y de cuerpo de aves
+respectivamente. Las dos últimas columnas a masas esquelética y
+corporal, respectivamente, de mamíferos.
 
-1. Encuentra un modelo mínimo adecuado que represente la relación alométrica entre  masa esquelética y masa corporal para aves por un lado y para mamíferos por el otro. ¿Cómo reportaría los resultados obtenidos en un artículo científico?
+1.  Encuentra un modelo mínimo adecuado que represente la relación
+    alométrica entre masa esquelética y masa corporal para aves por un
+    lado y para mamíferos por el otro. ¿Cómo reportaría los resultados
+    obtenidos en un artículo científico?
 
-2. Estima con dichos modelos cuál sería la masa esquelética esperada para un ave de 5 kg de masa corporal y cuál sería la masa esquelética de un mamífero de 5 kg. 
+2.  Estima con dichos modelos cuál sería la masa esquelética esperada
+    para un ave de 5 kg de masa corporal y cuál sería la masa
+    esquelética de un mamífero de 5 kg.
 
-3. En un análisis cualitativo (por ejemplo sobreponiendo las curvas predichas) crees que se sostiene la hipótesis de los autores?
-
+3.  En un análisis cualitativo (por ejemplo sobreponiendo las curvas
+    predichas) crees que se sostiene la hipótesis de los autores?
 
 ## Recuerda
 
-•	Realizar el análisis exploratorios (gráficos y tablas) pertinentes.
-•	Ejecutar los análisis en R, por favor incluye únicamente las salidas del programa que son **ESTRICTAMENTE NECESARIAS** para respaldar tus decisiones 
--Es **INÚTIL** incluir en el reporte salidas del programa **SIN INTERPRETACIÓN**.
+-   • Realizar el análisis exploratorios (gráficos y tablas)
+    pertinentes.
+
+-    Ejecutar los análisis en R, por favor incluye únicamente las
+    salidas del programa que son **ESTRICTAMENTE NECESARIAS** para
+    respaldar tus decisiones -
+
+-   Es **INÚTIL** incluir en el reporte salidas del programa **SIN
+    INTERPRETACIÓN**.

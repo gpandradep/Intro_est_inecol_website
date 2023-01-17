@@ -21,19 +21,6 @@ download_link(
 
 ```
 
-```{r echo=FALSE}
-## Link del script pdf
-download_link(
-  link = "https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Phipot2bis.pdf",
-  button_label = "Descargar script en pdf",
-  button_type = "danger",
-  has_icon = TRUE,
-  icon = "fa fa-save",
-  self_contained = FALSE
-)
-```
-
-
 # R.3
 
 Entonces ¿cual es la probabilidad de que mi muestra de frecuencias (o una mas extrema) pertenezca a una población donde el aislamiento de la planta y el plumaje del colibrí defensor son independientes?

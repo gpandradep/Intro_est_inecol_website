@@ -2031,7 +2031,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2084,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2105,7 +2119,7 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#c.2">C.2</a></li>
+<li><a href="#c.2" id="toc-c.2">C.2</a></li>
 </ul>
 </nav>
 </div>
@@ -2117,6 +2131,14 @@ Scripts
 <div class="layout-chunk" data-layout="l-body">
 <a href="https://github.com/gpandradep/Intro_est_inecol_website/raw/main/scripts/Phipot1bis.pdf">
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
+</a>
+</div>
+<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/skewdata.txt">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
 </a>
 </div>
 <h1 id="c.2">C.2</h1>
@@ -2144,7 +2166,7 @@ Scripts
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapobbis_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="Phunapobbis_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <p>Calculemos el sesgo</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2154,7 +2176,8 @@ Scripts
 </div>
 <pre><code>[1] 1.318905</code></pre>
 </div>
-<p>Ahora hagamos una prueba de t para determinar si hay sesgo respecto a lo esperado para una población de inferencia con distribución normal</p>
+<p>Ahora hagamos una prueba de t para determinar si hay sesgo respecto a
+lo esperado para una población de inferencia con distribución normal</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>skew</span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>)</span>
@@ -2167,7 +2190,9 @@ Scripts
 </div>
 <pre><code>[1] 0.003185136</code></pre>
 </div>
-<p>¿Cual es la conclusión?. Efectivamente está más sesgado de los esperado normalmente, ¿que se puede hacer, si insistimos en cumplir con la normalidad?</p>
+<p>¿Cual es la conclusión?. Efectivamente está más sesgado de los
+esperado normalmente, ¿que se puede hacer, si insistimos en cumplir con
+la normalidad?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>skew</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>)</span>
@@ -2186,17 +2211,18 @@ Scripts
 <span class='va'>m4</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>x</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 <span class='va'>s4</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>var</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>2</span>
 <span class='va'>m4</span><span class='op'>/</span><span class='va'>s4</span> <span class='op'>-</span> <span class='fl'>3</span>  <span class='op'>}</span>
-<span class='fu'><a href='https://rdrr.io/pkg/PerformanceAnalytics/man/kurtosis.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span>
+<span class='fu'>kurtosis</span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 1.297751</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/PerformanceAnalytics/man/kurtosis.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>24</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>kurtosis</span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fl'>24</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>values</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>[1] 1.45093</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

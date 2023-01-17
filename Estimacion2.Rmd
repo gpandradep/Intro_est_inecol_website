@@ -33,6 +33,26 @@ download_link(
 )
 ```
 
+
+NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar
+```{r echo=FALSE}
+
+
+## Link del script
+download_link(
+  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/yvalues.txt",
+  button_label = "Descargar yvalues",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+
+
+
 # R.1 
 ## Estimación de parámetros de tendencia central 
 

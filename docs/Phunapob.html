@@ -2031,7 +2031,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2084,6 +2084,20 @@ Scripts
 <a href="ANDEVA.html">ANDEVA</a>
 </div>
 </div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Tareas
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Tarea_1.html">Tarea 1</a>
+<a href="Tarea_2.html">Tarea 2</a>
+<a href="Tarea_3.html">Tarea 3</a>
+<a href="Tarea_4.html">Tarea 4</a>
+<a href="Tarea_5.html">Tarea 5</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2105,9 +2119,9 @@ Scripts
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#r.1">R.1</a></li>
-<li><a href="#c.1">C.1</a></li>
-<li><a href="#r.2">R.2</a></li>
+<li><a href="#r.1" id="toc-r.1">R.1</a></li>
+<li><a href="#c.1" id="toc-c.1">C.1</a></li>
+<li><a href="#r.2" id="toc-r.2">R.2</a></li>
 </ul>
 </nav>
 </div>
@@ -2121,8 +2135,19 @@ Scripts
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
+<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em>
+<div class="layout-chunk" data-layout="l-body">
+<a href="hhttps://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/light.txt">
+<button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
 <h1 id="r.1">R.1</h1>
-<p>Veamos un ejemplo de prueba de hipótesis para una población (Crawley p.64). Estos son datos de Michelson (1978), de medidas tomadas para estimar la velocidad de la luz. Que ahora sabemos es cercano (299,990 km p seg).</p>
+<p>Veamos un ejemplo de prueba de hipótesis para una población (Crawley
+p.64). Estos son datos de Michelson (1978), de medidas tomadas para
+estimar la velocidad de la luz. Que ahora sabemos es cercano (299,990 km
+p seg).</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>veluz</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"light.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2136,7 +2161,7 @@ Scripts
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>speed</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapob_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+<p><img src="Phunapob_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2146,13 +2171,14 @@ Scripts
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     650     850     940     909     980    1070 </code></pre>
 </div>
-<p>A todos los valores se les ha restado 299 000 para facilitar su visualización ¿que pueden ver aquí? ¿tenemos valores atípicos?</p>
+<p>A todos los valores se les ha restado 299 000 para facilitar su
+visualización ¿que pueden ver aquí? ¿tenemos valores atípicos?</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>speed</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapob_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="Phunapob_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2160,16 +2186,29 @@ Scripts
 <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqline</a></span><span class='op'>(</span><span class='va'>speed</span>,lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Phunapob_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+<p><img src="Phunapob_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
-<p>La muestra no se distribuye de acuerdo a lo esperado normalmente (cosa que una prueba de t para una población asume), pero además ¿Creen que la población de referencia se distribuya de manera normal?</p>
-<p>No puede porque tiene el problema de que la vel de la luz no puede tomar valores negativos</p>
-<p>Nuestra hipótesis es que los datos de Michelson difieren de el valor prevaleciente en esa época como la vel de la luz 299,990 km/seg. Como a todos los valores les quitaron 299 000 entonces ¿cual va a ser la referencia?</p>
-<p>Ahora, si cumpliéramos con el supuesto de que la pob. de referencia se distribuye normalmente, cómo resolvemos este problema?…ustedes ya lo saben hacer.</p>
-<p>Primero. ¿Este problema tiene una o dos colas que le pisen? Entonces ¿que harían?</p>
-<p>Bueno, pero como no cumplimos con el primero de los supuestos, necesitamos otra alternativa. Que se les ocurre?</p>
-<p>Por supuesto que también podemos usar una técnica de remuestreo con remplazo! <strong>Este es el punto 1. de la tarea de hoy. Hagan la prueba con bootstrap</strong></p>
-<p>Existe otra alternativa es una prueba llamada de rangos signados de Wilcoxon.</p>
+<p>La muestra no se distribuye de acuerdo a lo esperado normalmente
+(cosa que una prueba de t para una población asume), pero además ¿Creen
+que la población de referencia se distribuya de manera normal?</p>
+<p>No puede porque tiene el problema de que la vel de la luz no puede
+tomar valores negativos</p>
+<p>Nuestra hipótesis es que los datos de Michelson difieren de el valor
+prevaleciente en esa época como la vel de la luz 299,990 km/seg. Como a
+todos los valores les quitaron 299 000 entonces ¿cual va a ser la
+referencia?</p>
+<p>Ahora, si cumpliéramos con el supuesto de que la pob. de referencia
+se distribuye normalmente, cómo resolvemos este problema?…ustedes ya lo
+saben hacer.</p>
+<p>Primero. ¿Este problema tiene una o dos colas que le pisen? Entonces
+¿que harían?</p>
+<p>Bueno, pero como no cumplimos con el primero de los supuestos,
+necesitamos otra alternativa. Que se les ocurre?</p>
+<p>Por supuesto que también podemos usar una técnica de remuestreo con
+remplazo! <strong>Este es el punto 1. de la tarea de hoy. Hagan la
+prueba con bootstrap</strong></p>
+<p>Existe otra alternativa es una prueba llamada de rangos signados de
+Wilcoxon.</p>
 <h1 id="c.1">C.1</h1>
 <h1 id="r.2">R.2</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -2186,8 +2225,13 @@ data:  speed
 V = 22.5, p-value = 0.00213
 alternative hypothesis: true location is not equal to 990</code></pre>
 </div>
-<p>La probabilidad de obtener la media de nuestra muestra (estadístico) en una población de las medias de muchas muestras con media 990 (parámetro) es del 0.2%. Como aceptamos una probabilidad de equivocarnos al rechazar una H0 cuando esta es cierta del 5% entonces, la rechazamos!</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>La probabilidad de obtener la media de nuestra muestra (estadístico)
+en una población de las medias de muchas muestras con media 990
+(parámetro) es del 0.2%. Como aceptamos una probabilidad de equivocarnos
+al rechazar una H0 cuando esta es cierta del 5% entonces, la
+rechazamos!</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
