@@ -1,0 +1,19 @@
+---
+title: "Tarea 1"
+---
+ 
+# Teoréma de tendencia central
+
+Supongamos que tenemos una muestra de 100 colibríes de una especie A. Les hemos medido la extensión de alas y encontramos que la media es 17 cm y la desviación estándar es de 0.8 cm. 
+ 
+1. Dibujen la distribución de probabilidad bajo un supuesto de normalidad
+
+2. ¿que probabilidad hay de encontrar un caso con una extensión mayor a 18cm?
+
+Noten que cualquier valor de y en una distribución normal se puede convertir en un valor de z. Recuerden que $z=(y-media(y))/desv.stand$. 
+  
+3. ¿y la de encontrar un ave con una extensión menor a 15?
+
+4. ¿ustedes creen que un ave con una extensión de 15cm puede decirse que con una confianza del 95% pertenece a la misma población?
+
+5. ¿entre que medidas de extensión de alas se puede decir con un 95% de confianza que las aves pertenecen a esa población?

@@ -1,0 +1,42 @@
+---
+title: "Tarea 2"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Estimación
+
+La tabla de datos de `Palmer.xlsx` contiene los Valores de Importancia
+(VI) de 25 especies de briofitas (musgos y líquenes) creciendo en
+troncos de árboles en tres sitios en el Duke Forest, en Carolina del
+Norte. Los VIs son una medida de abundancia relativa. Cada valor (por
+celda) es el promedio de 10 árboles por sitio.
+
+Los códigos de las muestras indican las especies de árbol:
+
+-   BN = Betula nigra, abedul;
+
+-   LT = Liriodendron tulipifera, árbol de tulipán;
+
+-   PE = Pinus echinata, pino de hoja chica;
+
+-   PO = Platanus occidentalis, ficus;
+
+-   PT = Pinus taeda, pino hoja mediana;
+
+-   QR= Quercus rubra, encino rojo;
+
+-   QA= Quercus alba, encino blanco.
+
+## Preguntas:
+
+1)  ¿Cuál crees que sea la estimación más eficiente de la tendencia
+    central para Isopterygium tenerum?
+2)  Estima con un 93% de confianza en que intervalo se encuentra la
+    media para 4 especies de briofitos (utilicen un método basado en
+    distribuciones y uno en remuestreo).
+3)  ¿Qué puedes decir para las distintas especies? ¿difieren las
+    estimaciones dependiendo del método? ¿Porqué?
+4)  ¿Cómo reportarías la media general para Platygyrium repens en un
+    artículo científico?

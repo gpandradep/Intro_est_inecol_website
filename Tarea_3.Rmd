@@ -1,0 +1,12 @@
+---
+title: "Tarea 3"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Remuestreo en pruebas de hipótesis con una muestra simple
+
+Estos son datos de Michelson (1978) de medidas tomadas para estimar la velocidad de la luz que ahora sabemos es (299,792.458 km p seg). 
+
+Use el cuerpo de datos contenidos en `light.txt` y utilizando el método de remuestreo calcule los intervalos de confianza (95%) de la media de la velocidad (speed). ¿El valor medio está dentro del intervalo de confianza del muestreo?

@@ -1,0 +1,23 @@
+---
+title: "Tarea 5"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Regresión simple
+
+Los datos de masas esqueléticas y corporales (todas en kg) del archivo `avespeso.xls` fueron tomados al azar de un estudio más amplio realizado por Prange et al. (1979, American Naturalist 113: 103-122) donde analizaban la hipótesis de que las aves tienen esqueletos más ligeros que los mamíferos debido a su adaptación al vuelo. Las dos primeras columnas correponden a masas de esqueleto y de cuerpo de aves respectivamente. Las dos últimas columnas a masas esquelética y corporal, respectivamente, de mamíferos.
+
+1. Encuentra un modelo mínimo adecuado que represente la relación alométrica entre  masa esquelética y masa corporal para aves por un lado y para mamíferos por el otro. ¿Cómo reportaría los resultados obtenidos en un artículo científico?
+
+2. Estima con dichos modelos cuál sería la masa esquelética esperada para un ave de 5 kg de masa corporal y cuál sería la masa esquelética de un mamífero de 5 kg. 
+
+3. En un análisis cualitativo (por ejemplo sobreponiendo las curvas predichas) crees que se sostiene la hipótesis de los autores?
+
+
+## Recuerda
+
+•	Realizar el análisis exploratorios (gráficos y tablas) pertinentes.
+•	Ejecutar los análisis en R, por favor incluye únicamente las salidas del programa que son **ESTRICTAMENTE NECESARIAS** para respaldar tus decisiones 
+-Es **INÚTIL** incluir en el reporte salidas del programa **SIN INTERPRETACIÓN**.

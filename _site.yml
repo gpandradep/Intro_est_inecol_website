@@ -31,6 +31,20 @@ navbar:
         href: Correlacion.html
       - text: "ANDEVA"
         href: ANDEVA.html
+   - text: "Tareas"
+     menu:
+      - text: "Tarea 1"
+        href: Tarea_1.html
+      - text: "Tarea 2"
+        href: Tarea_2.html
+      - text: "Tarea 3"
+        href: Tarea_3.html
+      - text: "Tarea 4"
+        href: Tarea_4.html
+      - text: "Tarea 5"
+        href: Tarea_5.html
+        
+     
       
 output:
   distill::distill_article:

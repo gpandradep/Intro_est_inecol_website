@@ -1,0 +1,11 @@
+---
+title: "Tarea 4"
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Prueba de hipótesis
+
+Un investigador está interesado en probar si las hormigas construyen preferentemente sus nidos en árboles de una de dos especies. Muestreó 100 árboles de cada una de las especies y encontró que 60 árboles de la especie A y 20 de la especie B tenían nidos. ¿Esta muestra apoya la hipótesis de preferencia?
+
