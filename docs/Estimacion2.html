@@ -2152,9 +2152,9 @@ id="toc-medidas-de-dispersión">Medidas de dispersión</a></li>
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
-NOTA: Para descargar los datos, dar click en el boton. Aparece una
-pantalla con los datos, luego dar click derecho y poner guardar como
-(save as). Guardar el txt donde van a trabajar
+<strong>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</strong>
 <div class="layout-chunk" data-layout="l-body">
 <a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/yvalues.txt">
 <button class="btn btn-primary"><i class="fa fa-save"></i> Descargar yvalues</button>
@@ -2534,6 +2534,14 @@ n</p>
 </div>
 <p>Veamos un ejemplo de la concentración de ozono en unos
 invernaderos</p>
+<strong>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</strong>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/gardens.txt">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar gardens</button>
+</a>
+</div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ozono</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='st'>"gardens.txt"</span>,header<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span>
@@ -2551,7 +2559,7 @@ invernaderos</p>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span> <span class='op'>(</span><span class='va'>gardenC</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-38-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-39-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2626,7 +2634,7 @@ invernadero B fue de 5.0?0.826(I.C.95%, n=10)</p>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>gardenB</span><span class='op'>)</span><span class='op'>-</span><span class='fl'>0.826</span><span class='op'>)</span>,<span class='fl'>0</span>, lty<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-42-1.png" width="624" /></p>
+<p><img src="Estimacion2_files/figure-html5/unnamed-chunk-43-1.png" width="624" /></p>
 </div>
 <p>los dejo que ustedes calculen aquellos de los invernaderos A y C.</p>
 <h1 id="c.6">C.6</h1>

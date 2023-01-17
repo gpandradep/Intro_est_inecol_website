@@ -34,7 +34,7 @@ download_link(
 ```
 
 
-NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar
+**NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar**
 ```{r echo=FALSE}
 
 
@@ -326,6 +326,23 @@ points(tm,sqrt(var(x)/tm)) }}
 ```
 
 Veamos un ejemplo de la concentración de ozono en unos invernaderos
+
+**NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar**
+```{r echo=FALSE}
+
+
+## Link del script
+download_link(
+  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/gardens.txt",
+  button_label = "Descargar gardens",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
 
 ```{r include=FALSE}
 ozono<- read.table("data/gardens.txt",header=T)
