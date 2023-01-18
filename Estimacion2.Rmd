@@ -33,8 +33,8 @@ download_link(
 )
 ```
 
-
 **NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar**
+
 ```{r echo=FALSE}
 
 
@@ -50,11 +50,9 @@ download_link(
 
 ```
 
+# R.1
 
-
-
-# R.1 
-## Estimación de parámetros de tendencia central 
+## Estimación de parámetros de tendencia central
 
 Sabemos que aunque los datos no se agrupen alrededor de un valor típico si hacemos muestras consecutivas los estadísticos de estas van a tener una tendencia central.
 
@@ -71,8 +69,8 @@ yvals <- read.table("yvalues.txt",header=T)
 attach(yvals)
 yvals
 ```
-Una manera muy simple de medir la tendencia central es ver cual es el valor más frecuente. Este se denomina MODA
 
+Una manera muy simple de medir la tendencia central es ver cual es el valor más frecuente. Este se denomina MODA
 
 ```{r}
 yord<-sort(y)
@@ -87,7 +85,6 @@ hist(y)
 ¿cual es la clase modal aquí?
 
 Pero ahora queremos saber la media aritmética (el promedio) que es la suma de todos los valores dividido por n. ¿Que hago?
-
 
 ```{r}
 total<-sum(y)
@@ -112,7 +109,6 @@ media.aritmetica <- function(x) {
 
 ya está, ahora probémosla
 
-
 ```{r}
 data<-c(3,4,6,7)
 media.aritmetica(data)
@@ -125,7 +121,6 @@ media.aritmetica(y)
 ¡Que bien! ¡R es fantástico! puedo calcular la media siempre que me plazca.
 
 En realidad la mayor parte de las funciones estadísticas están ya construidas en R. Por supuesto que la media es una de ellas. Solo quería mostrarles que no hay nada obscuro detrás de los objetos ya creados en R
-
 
 ```{r}
 mean(y)
@@ -145,7 +140,7 @@ comparado con
 mean(data)
 ```
 
-Una alternativa es la mediana, que es el valor de en medio, una vez que todos los valores han sido ordenados. Veamos   `dataat`
+Una alternativa es la mediana, que es el valor de en medio, una vez que todos los valores han sido ordenados. Veamos `dataat`
 
 ```{r}
 dataat
@@ -180,7 +175,7 @@ Se parecen mucho porque no hay valores atípicos y porque la distribución es si
 
 Ahora pensemos en fenómenos que cambian multiplicativamente. ¿Conocen alguno?
 
- Uno de los más comunes en ecología es el crecimiento poblacional y por lo tanto la dispersión de organismos de una población. En dichos casos la media aritmética y/o la mediana suelen ser pésimos estimadores de la tendencia central. Veamos un ejemplo.
+Uno de los más comunes en ecología es el crecimiento poblacional y por lo tanto la dispersión de organismos de una población. En dichos casos la media aritmética y/o la mediana suelen ser pésimos estimadores de la tendencia central. Veamos un ejemplo.
 
 El número de insectos en una serie de plantas vecinas es
 
@@ -202,8 +197,7 @@ median(insectos)
 
 # C.1
 
-
-# R.2 
+# R.2
 
 Lo que se usa es la media geométrica que si se acuerdan hay dos maneras de calcularla. Para el ejemplo de los insectos ¿cual es la mas simple?
 
@@ -211,12 +205,11 @@ Lo que se usa es la media geométrica que si se acuerdan hay dos maneras de calc
 100000^0.2
 ```
 
- ¿y la otra?
+¿y la otra?
 
 ```{r}
 exp(mean(log(insectos)))
 ```
-
 
 ```{r}
 detach(yvals)
@@ -224,11 +217,9 @@ rm(insectos)
 ls()
 ```
 
-
-
 # C.2
 
-# R.3 
+# R.3
 
 # Medidas de dispersión
 
@@ -251,12 +242,12 @@ Lo más fácil es decir de donde a donde va (el intervalo).
 range(y)
 ```
 
- Pero esto tiene sus problemas.
+Pero esto tiene sus problemas.
 
-1. No tiene relación con el parámetro población de intervalo.
-2. Incrementa con la n.
-3. Además es muy susceptible a valores atípicos
-4. No considera a todos lo valores.
+1.  No tiene relación con el parámetro población de intervalo.
+2.  Incrementa con la n.
+3.  Además es muy susceptible a valores atípicos
+4.  No considera a todos lo valores.
 
 Otra medida de dispersión muy importante es la varianza. Que está fundamentada en las desviaciones (o residuales) de cada valor con la media
 
@@ -281,7 +272,7 @@ Si divido entre n, se llama la desviación media de los cuadrados.
 
 # C.3
 
-# R.4 
+# R.4
 
 ```{r}
 variance <- function (x)   sum((x-mean(x))^2)/(length(x)-1)
@@ -312,7 +303,7 @@ Ahora pueden ver que la varianza poblacional puede estar muy mal estimada con ta
 
 # C.4
 
-# R.5 
+# R.5
 
 Hagamos el mismo proceso que hicimos antes para elegir muestras con tamaños de muestra que incrementan pero ahora veamos que sucede con nuestra medida de desconfianza de la estimación a medida que aumenta n
 
@@ -328,6 +319,7 @@ points(tm,sqrt(var(x)/tm)) }}
 Veamos un ejemplo de la concentración de ozono en unos invernaderos
 
 **NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar**
+
 ```{r echo=FALSE}
 
 
@@ -342,7 +334,6 @@ download_link(
 )
 
 ```
-
 
 ```{r include=FALSE}
 ozono<- read.table("data/gardens.txt",header=T)
@@ -364,7 +355,6 @@ plot (gardenB)
 plot (gardenC)
 ```
 
-
 ```{r}
 MediaA<- mean(gardenA)
 EEA<- sqrt(var(gardenA)/10)
@@ -385,7 +375,7 @@ EEC
 
 # C.5
 
-# R.6 
+# R.6
 
 Vamos a calcular los intervalos de confianza para la media de los invernaderos usando la distribución de t. qt nos d? el valor de t para el cual hay cierta proporción a la izquierda.
 
