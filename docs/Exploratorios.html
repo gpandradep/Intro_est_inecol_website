@@ -82,6 +82,27 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
+</style>
 
   <!--radix_placeholder_meta_tags-->
   <title>Introducción a la estadística inferencial: Script Análisis exploratorios</title>
@@ -100,10 +121,12 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <meta property="twitter:title" content="Introducción a la estadística inferencial: Script Análisis exploratorios"/>
 
   <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Datawizard: An r package for easy data preparation and statistical transformations;citation_publication_date=2022;citation_volume=7;citation_doi=10.21105/joss.04684;citation_author=Indrajeet Patil;citation_author=Dominique Makowski;citation_author=Mattan S. Ben-Shachar;citation_author=Brenton M. Wiernik;citation_author=Etienne Bacher;citation_author=Daniel Lüdecke"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Script Análisis exploratorios"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Script Análisis exploratorios"]},{"type":"character","attributes":{},"value":["references.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2074,6 +2097,7 @@ Scripts
 <a href="Estimacion2.html">Estimación 2</a>
 <a href="Estimacion2bis.html">Estimación 2 bis</a>
 <a href="Exploratorios.html">Exploratorios</a>
+<a href="Explor_ggplot.html">Exploratorios con ggplot</a>
 <a href="PanelCorrel.html">Paneles de correlación</a>
 <a href="Phunapob.html">Prueba de hipótesis 1</a>
 <a href="Phunapobbis.html">Prueba de hipótesis 1 bis</a>
@@ -2121,7 +2145,16 @@ Tareas
 <ul>
 <li><a href="#r.1" id="toc-r.1">R.1</a></li>
 <li><a href="#exploración-univariada"
-id="toc-exploración-univariada">Exploración Univariada</a></li>
+id="toc-exploración-univariada">Exploración Univariada</a>
+<ul>
+<li><a href="#boxplot" id="toc-boxplot">Boxplot</a></li>
+<li><a href="#histogramas" id="toc-histogramas">Histogramas</a>
+<ul>
+<li><a href="#kurtosis-y-simetría" id="toc-kurtosis-y-simetría">Kurtosis
+y simetría</a></li>
+<li><a href="#qqplots" id="toc-qqplots">QQplots</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#relaciones-bivariadas"
 id="toc-relaciones-bivariadas">Relaciones bivariadas</a></li>
 <li><a href="#c.1" id="toc-c.1">C.1</a></li>
@@ -2141,9 +2174,9 @@ valores faltantes</a></li>
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
-<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
-pantalla con los datos, luego dar click derecho y poner guardar como
-(save as). Guardar el csv donde van a trabajar</em>
+<p><em>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el csv donde van a trabajar</em></p>
 <div class="layout-chunk" data-layout="l-body">
 <a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/airpoll.csv">
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
@@ -2271,20 +2304,22 @@ youngsOH       38      10.7   3451     11.7  13  39     954.4</code></pre>
 </div>
 <p>vease la diferencia entre la media y la mediana para reconocer
 desviaciones, calculese el intervalo intercuartiles (3er-1er).</p>
+<h2 id="boxplot">Boxplot</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#windows()</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, range<span class='op'>=</span><span class='fl'>0</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span><span class='op'>)</span> <span class='co'># en este caso, los "bigotes" del boxplot ubican el máximo (1) y el mínimo (278).</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, range<span class='op'>=</span><span class='fl'>0</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span>, main<span class='op'>=</span> <span class='st'>"Range 0"</span><span class='op'>)</span> <span class='co'># en este caso, los "bigotes" del boxplot ubican el máximo (1) y el mínimo (278).</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span><span class='op'>)</span> <span class='co'>#en este caso, la función se ejecuta con range = 1.5 por defecto.</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span>, main<span class='op'>=</span> <span class='st'>"Range 1.5"</span><span class='op'>)</span> <span class='co'>#en este caso, la función se ejecuta con range = 1.5 por defecto.</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-11-1.png" width="150%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2319,87 +2354,21 @@ puntos que caen mas allá del 3er+1.5(intercuartil) o mas bajo que
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>156</span>, col <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>airpoll</span>
-</code></pre>
-</div>
-<pre><code>         Rainfall Education Popden Nonwhite NOX SO2 Mortality
-akronOH        36      11.4   3243      8.8  15  59     921.9
-albanyNY       35      11.0   4281      3.5  10  39     997.9
-allenPA        44       9.8   4260      0.8   6  33     962.4
-atlantGA       47      11.1   3125     27.1   8  24     982.3
-baltimMD       43       9.6   6441     24.4  38 206    1071.0
-birmhmAL       53      10.2   3325     38.5  32  72    1030.0
-bostonMA       43      12.1   4679      3.5  32  62     934.7
-bridgeCT       45      10.6   2140      5.3   4   4     899.5
-bufaloNY       36      10.5   6582      8.1  12  37    1002.0
-cantonOH       36      10.7   4213      6.7   7  20     912.3
-chatagTN       52       9.6   2302     22.2   8  27    1018.0
-chicagIL       33      10.9   6122     16.3  63 278    1025.0
-cinnciOH       40      10.2   4101     13.0  26 146     970.5
-clevelOH       35      11.1   3042     14.7  21  64     986.0
-colombOH       37      11.9   4259     13.1   9  15     958.8
-dallasTX       35      11.8   1441     14.8   1   1     860.1
-daytonOH       36      11.4   4029     12.4   4  16     936.2
-denverCO       15      12.2   4824      4.7   8  28     871.8
-detrotMI       31      10.8   4834     15.8  35 124     959.2
-flintMI        30      10.8   3694     13.1   4  11     941.2
-ftwortTX       31      11.4   1844     11.5   1   1     891.7
-grndraMI       31      10.9   3226      5.1   3  10     871.3
-grnborNC       42      10.4   2269     22.7   3   5     971.1
-hartfdCT       43      11.5   2909      7.2   3  10     887.5
-houstnTX       46      11.4   2647     21.0   5   1     952.5
-indianIN       39      11.4   4412     15.6   7  33     968.7
-kansasMO       35      12.0   3262     12.6   4   4     919.7
-lancasPA       43       9.5   3214      2.9   7  32     844.1
-losangCA       11      12.1   4700      7.8 319 130     861.8
-louisvKY       30       9.9   4474     13.1  37 193     989.3
-memphsTN       50      10.4   3497     36.7  18  34    1006.0
-miamiFL        60      11.5   4657     13.5   1   1     861.4
-milwauWI       30      11.1   2934      5.8  23 125     929.2
-minnplMN       25      12.1   2095      2.0  11  26     857.6
-nashvlTN       45      10.1   2082     21.0  14  78     961.0
-newhvnCT       46      11.3   3327      8.8   3   8     923.2
-neworlLA       54       9.7   3172     31.4  17   1    1113.0
-newyrkNY       42      10.7   7462     11.3  26 108     994.6
-philadPA       42      10.5   6092     17.5  32 161    1015.0
-pittsbPA       36      10.6   3437      8.1  59 263     991.3
-portldOR       37      12.0   3387      3.6  21  44     894.0
-provdcRI       42      10.1   3508      2.2   4  18     938.5
-readngPA       41       9.6   4843      2.7  11  89     946.2
-richmdVA       44      11.0   3768     28.6   9  48    1026.0
-rochtrNY       32      11.1   4355      5.0   4  18     874.3
-stlousMO       34       9.7   5160     17.2  15  68     953.6
-sandigCA       10      12.1   3033      5.9  66  20     839.7
-sanfrnCA       18      12.2   4253     13.7 171  86     911.7
-sanjosCA       13      12.2   2702      3.0  32   3     790.7
-seatleWA       35      12.2   3626      5.7   7  20     899.3
-springMA       45      11.1   1883      3.4   4  20     904.2
-syracuNY       38      11.4   4923      3.8   5  25     950.7
-toledoOH       31      10.7   3249      9.5   7  25     972.5
-uticaNY        40      10.3   1671      2.5   2  11     912.2
-washDC         41      12.3   5308     25.9  28 102     968.8
-wichtaKS       28      12.1   3665      7.5   2   1     823.8
-wilmtnDE       45      11.3   3152     12.1  11  42    1004.0
-worctrMA       45      11.1   3678      1.0   3   8     895.7
-yorkPA         42       9.0   9699      4.8   8  49     911.8
-youngsOH       38      10.7   3451     11.7  13  39     954.4</code></pre>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <p>¿Cuales son los valores atípicos para SO2? Ahora veamos lo que
 considera R como atípicos por default</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, range<span class='op'>=</span><span class='fl'>0</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, range<span class='op'>=</span><span class='fl'>1.5</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, range<span class='op'>=</span><span class='fl'>0</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span>, main<span class='op'>=</span> <span class='st'>"Range 0"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span>, main<span class='op'>=</span><span class='st'>"Por defecto"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/boxplot.html'>boxplot</a></span><span class='op'>(</span><span class='va'>SO2</span>, range<span class='op'>=</span><span class='fl'>1.5</span>, ylab<span class='op'>=</span><span class='st'>"SO2"</span>, main<span class='op'>=</span> <span class='st'>"Range = 1.5"</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="Exploratorios_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
+<h2 id="histogramas">Histogramas</h2>
 <p>Veamos las distribuciones de todas</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2416,6 +2385,105 @@ considera R como atípicos por default</p>
 <p><img src="Exploratorios_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <p>¿reconocen desviaciones negativas o positivas? Son normales?</p>
+<h3 id="kurtosis-y-simetría">Kurtosis y simetría</h3>
+<p>En este caso se necesita el paquete <code>datawizard</code> <span
+class="citation" data-cites="datawizard">(<a href="#ref-datawizard"
+role="doc-biblioref">Patil et al. 2022</a>)</span> para correr las
+pruebas de kurtosis y simetria</p>
+<p>Para instalarlo pueden usar</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"datawizard"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>¿Cómo se ve sin sesgo y curtosis?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://easystats.github.io/datawizard/'>datawizard</a></span><span class='op'>)</span>
+
+<span class='va'>norm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>1000</span><span class='op'>)</span> <span class='co'>#Genero 1000 datos con distribución normal</span>
+
+<span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Skewness |    SE
+----------------
+  -0.050 | 0.077</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Kurtosis |    SE
+----------------
+   0.153 | 0.154</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>norm</span>, freq <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/density.html'>density</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='op'>-</span><span class='fl'>2</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='st'>"Skewness = 0.123"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>2</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='st'>"Kurtosis = 0.09"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
+</div>
+<p>Ahora con nuestros datos</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Skewness |    SE
+----------------
+   1.912 | 0.301</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Kurtosis |    SE
+----------------
+   3.552 | 0.559</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>SO2</span>,freq <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/density.html'>density</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>100</span>, y<span class='op'>=</span><span class='fl'>0.01</span>, label<span class='op'>=</span> <span class='st'>"Skewness = 1.912"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>250</span>, y<span class='op'>=</span><span class='fl'>0.01</span>, label<span class='op'>=</span> <span class='st'>"Kurtosis = 3.552"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Skewness |    SE
+----------------
+  -0.443 | 0.301</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Kurtosis |    SE
+----------------
+  -0.390 | 0.559</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span>,freq <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/density.html'>density</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>1</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='st'>"Skewness = -0.43"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>5</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='st'>"Kurtosis = -0.45"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
+</div>
+<h3 id="qqplots">QQplots</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>                                                 
@@ -2428,7 +2496,7 @@ considera R como atípicos por default</p>
 <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqnorm</a></span><span class='op'>(</span><span class='va'>Mortality</span>, main<span class='op'>=</span><span class='st'>"Q-Q plot Mortality"</span><span class='op'>)</span>; <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqline</a></span><span class='op'>(</span><span class='va'>Mortality</span>, col <span class='op'>=</span> <span class='fl'>2</span>, lty <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
 </div>
 <h1 id="relaciones-bivariadas">Relaciones bivariadas</h1>
 <p>Veamos que relación hay entre las distintas variables. Aquí utilizo
@@ -2439,9 +2507,9 @@ con los propios datos que tipo de relación pudieran tener.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>airpoll</span>, panel<span class='op'>=</span><span class='va'>panel.smooth</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-19-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
 </div>
-veamos con mas detalle la relación SO2-mortalidad
+<p>veamos con mas detalle la relación SO2-mortalidad</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>nombres</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/abbreviate.html'>abbreviate</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/row.names.html'>row.names</a></span><span class='op'>(</span><span class='va'>airpoll</span><span class='op'>)</span><span class='op'>)</span>
@@ -2450,7 +2518,7 @@ veamos con mas detalle la relación SO2-mortalidad
 <span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span><span class='va'>SO2</span>,<span class='va'>Mortality</span>,labels<span class='op'>=</span><span class='va'>nombres</span>,lwd<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2495,7 +2563,7 @@ imputación?</p>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>59</span>, h <span class='op'>=</span> <span class='fl'>921.9</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-34-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2536,7 +2604,7 @@ F-statistic: 13.13 on 1 and 57 DF,  p-value: 0.0006196</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Mortality</span><span class='op'>~</span><span class='va'>SO2</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-36-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2586,7 +2654,7 @@ F-statistic: 20.19 on 1 and 57 DF,  p-value: 3.482e-05</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>58</span>, h <span class='op'>=</span> <span class='fl'>940.2161</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-39-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2594,7 +2662,7 @@ F-statistic: 20.19 on 1 and 57 DF,  p-value: 3.482e-05</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>logM</span><span class='op'>~</span><span class='va'>logSO2</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-40-1.png" width="624" /></p>
 </div>
 <p>el valor de SO2 que corresponde al valor faltante de mortalidad es
 58. Como hemos generado un modelo de logaritmos a ambos lados de la
@@ -2629,8 +2697,19 @@ nos interesa retro transformar)</p>
 <p>El valor predicho por regresión lineal es? Cuales son los problemas
 asociados a esta imputación?</p>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb17"><pre
+<div class="sourceCode" id="cb22"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-datawizard" class="csl-entry" role="doc-biblioentry">
+Patil, Indrajeet, Dominique Makowski, Mattan S. Ben-Shachar, Brenton M.
+Wiernik, Etienne Bacher, and Daniel Lüdecke. 2022.
+<span>“<span></span>Datawizard<span></span>: An
+<span></span>r<span></span> Package for Easy Data Preparation and
+Statistical Transformations”</span> 7: 4684. <a
+href="https://doi.org/10.21105/joss.04684">https://doi.org/10.21105/joss.04684</a>.
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2642,7 +2721,10 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

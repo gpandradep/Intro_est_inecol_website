@@ -13,6 +13,11 @@ author:
     affiliation: Red de Diversidad Biológica del Occidente Mexicano - INECOL
     affiliation_url: https://www.inecol.mx/personal/index.php/redes-academicas/diversidad-biologica-del-occidente-mexicano/205-carlos-andres-cultid-medina
     orcid_id: 0000-0002-4929-8405
+  - name: Gabriel Andrade Ponce
+    url: https://www.researchgate.net/profile/Gabriel-Andrade-Ponce?ev=hdr_xprf
+    affiliation: Posgrado - INECOL
+    affiliation_url: https://gpandradep.github.io/gpandradep/
+ #   orcid_id: 
     
 date: Enero 16, 2022
 site: distill::distill_website

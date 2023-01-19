@@ -84,26 +84,26 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Introducción a la estadística inferencial: Tarea 5</title>
+  <title>Introducción a la estadística inferencial: Tarea 6</title>
 
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Introducción a la estadística inferencial: Tarea 5"/>
+  <meta property="og:title" content="Introducción a la estadística inferencial: Tarea 6"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Introducción a la estadística inferencial"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Introducción a la estadística inferencial: Tarea 5"/>
+  <meta property="twitter:title" content="Introducción a la estadística inferencial: Tarea 6"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Tarea 5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["markdown"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["wrap"]}},"value":[{"type":"integer","attributes":{},"value":[72]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","editor_options"]}},"value":[{"type":"character","attributes":{},"value":["Tarea 6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["markdown"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["wrap"]}},"value":[{"type":"integer","attributes":{},"value":[72]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2032,6 +2032,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
   <!--/radix_placeholder_distill-->
   <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/font-awesome-5.13.0/js/script.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2051,7 +2052,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Tarea 5","authors":[]}
+{"title":"Tarea 6","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2096,7 +2097,6 @@ Tareas
 <a href="Tarea_3.html">Tarea 3</a>
 <a href="Tarea_4.html">Tarea 4</a>
 <a href="Tarea_5.html">Tarea 5</a>
-<a href="Tarea_5.html">Tarea 6</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2108,7 +2108,7 @@ Tareas
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Tarea 5</h1>
+<h1>Tarea 6</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2120,17 +2120,52 @@ Tareas
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#prueba-de-hipótesis" id="toc-prueba-de-hipótesis">Prueba
-de hipótesis</a></li>
+<li><a href="#regresión-simple" id="toc-regresión-simple">Regresión
+simple</a>
+<ul>
+<li><a href="#recuerda" id="toc-recuerda">Recuerda</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
-<h1 id="prueba-de-hipótesis">Prueba de hipótesis</h1>
-<p>Un investigador está interesado en probar si las hormigas construyen
-preferentemente sus nidos en árboles de una de dos especies. Muestreó
-100 árboles de cada una de las especies y encontró que 60 árboles de la
-especie A y 20 de la especie B tenían nidos. ¿Esta muestra apoya la
-hipótesis de preferencia?</p>
+<p><em>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/pesoaves.txt">
+<button class="btn btn-primary"><i class="fa fa-save"></i> Descargar datos</button>
+</a>
+</div>
+<h1 id="regresión-simple">Regresión simple</h1>
+<p>Los datos de masas esqueléticas y corporales (todas en kg) del
+archivo <code>pesoaves.txt</code> fueron tomados al azar de un estudio
+más amplio realizado por Prange et al. (1979, American Naturalist 113:
+103-122) donde analizaban la hipótesis de que las aves tienen esqueletos
+más ligeros que los mamíferos debido a su adaptación al vuelo. Las dos
+primeras columnas correponden a masas de esqueleto y de cuerpo de aves
+respectivamente. Las dos últimas columnas a masas esquelética y
+corporal, respectivamente, de mamíferos.</p>
+<ol type="1">
+<li><p>Encuentra un modelo mínimo adecuado que represente la relación
+alométrica entre masa esquelética y masa corporal para aves por un lado
+y para mamíferos por el otro. ¿Cómo reportaría los resultados obtenidos
+en un artículo científico?</p></li>
+<li><p>Estima con dichos modelos cuál sería la masa esquelética esperada
+para un ave de 5 kg de masa corporal y cuál sería la masa esquelética de
+un mamífero de 5 kg.</p></li>
+<li><p>En un análisis cualitativo (por ejemplo sobreponiendo las curvas
+predichas) crees que se sostiene la hipótesis de los autores?</p></li>
+</ol>
+<h2 id="recuerda">Recuerda</h2>
+<ul>
+<li><p>• Realizar el análisis exploratorios (gráficos y tablas)
+pertinentes.</p></li>
+<li><p>Ejecutar los análisis en R, por favor incluye únicamente las
+salidas del programa que son <strong>ESTRICTAMENTE NECESARIAS</strong>
+para respaldar tus decisiones -</p></li>
+<li><p>Es <strong>INÚTIL</strong> incluir en el reporte salidas del
+programa <strong>SIN INTERPRETACIÓN</strong>.</p></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

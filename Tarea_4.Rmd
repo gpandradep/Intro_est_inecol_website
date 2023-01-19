@@ -5,7 +5,26 @@ editor_options:
     wrap: 72
 ---
 
-# Prueba de hipótesis
+*NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar*
 
-Un investigador está interesado en probar si las hormigas construyen preferentemente sus nidos en árboles de una de dos especies. Muestreó 100 árboles de cada una de las especies y encontró que 60 árboles de la especie A y 20 de la especie B tenían nidos. ¿Esta muestra apoya la hipótesis de preferencia?
+```{r echo=FALSE}
+library(downloadthis)
 
+## Link del script
+download_link(
+  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/light.txt",
+  button_label = "Descargar datos",
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+
+```
+
+
+# Remuestreo en pruebas de hipótesis con una muestra simple
+
+Estos son datos de Michelson (1978) de medidas tomadas para estimar la velocidad de la luz que ahora sabemos es (299,792.458 km p seg). 
+
+Use el cuerpo de datos contenidos en `light.txt` y utilizando el método de remuestreo calcule los intervalos de confianza (95%) de la media de la velocidad (speed). ¿El valor medio está dentro del intervalo de confianza del muestreo?

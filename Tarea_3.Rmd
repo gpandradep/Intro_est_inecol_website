@@ -5,14 +5,16 @@ editor_options:
     wrap: 72
 ---
 
-*NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar*
+*NOTA: Para descargar los datos, dar click en el boton. Aparece una
+pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar*
 
 ```{r echo=FALSE}
 library(downloadthis)
 
 ## Link del script
 download_link(
-  link = "https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/light.txt",
+  link = "https://github.com/gpandradep/Intro_est_inecol_website/blob/main/data/Palmer.xls",
   button_label = "Descargar datos",
   button_type = "primary",
   has_icon = TRUE,
@@ -22,9 +24,22 @@ download_link(
 
 ```
 
+# Análisis Exploratorios
 
-# Remuestreo en pruebas de hipótesis con una muestra simple
+La tabla de datos de `Palmer.csv` contiene los valores de importancia de
+25 especies de briofitas (musgos y líquenes) creciendo en troncos de
+árboles en tres sitios en el Duke Forest, en Carolina del Norte. Los
+valores de importancia son una medida de abundancia relativa. Cada
+muestra representa el promedio de 10 árboles en un sitio dado. Los
+códigos de las muestras indican la especies de árbol y el sitio; BN =
+Betula nigra, abedul; LT = Liriodendron tulipifera, árbol de tulipán; PE
+= Pinus echinata, pino de hoja chica; PO = Platanus occidentalis, ficus;
+PT = Pinus taeda, pino hoja mediana; QR= Quercus rubra, encino rojo; QA=
+Quercus alba, encino blanco.
 
-Estos son datos de Michelson (1978) de medidas tomadas para estimar la velocidad de la luz que ahora sabemos es (299,792.458 km p seg). 
+1)  Plantear una pregunta sencilla y examinar, a partir del exploratorio
+    establecer si tengo la información suficiente para contestar o no
+    esa pregunta.
 
-Use el cuerpo de datos contenidos en `light.txt` y utilizando el método de remuestreo calcule los intervalos de confianza (95%) de la media de la velocidad (speed). ¿El valor medio está dentro del intervalo de confianza del muestreo?
+2)  Realizar un análisis exploratorio completo de los datos. Usando los
+    datos de la tabla anterior.

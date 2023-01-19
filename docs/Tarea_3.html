@@ -2074,6 +2074,7 @@ Scripts
 <a href="Estimacion2.html">Estimación 2</a>
 <a href="Estimacion2bis.html">Estimación 2 bis</a>
 <a href="Exploratorios.html">Exploratorios</a>
+<a href="Explor_ggplot.html">Exploratorios con ggplot</a>
 <a href="PanelCorrel.html">Paneles de correlación</a>
 <a href="Phunapob.html">Prueba de hipótesis 1</a>
 <a href="Phunapobbis.html">Prueba de hipótesis 1 bis</a>
@@ -2096,6 +2097,7 @@ Tareas
 <a href="Tarea_3.html">Tarea 3</a>
 <a href="Tarea_4.html">Tarea 4</a>
 <a href="Tarea_5.html">Tarea 5</a>
+<a href="Tarea_5.html">Tarea 6</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2119,9 +2121,8 @@ Tareas
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#remuestreo-en-pruebas-de-hipótesis-con-una-muestra-simple"
-id="toc-remuestreo-en-pruebas-de-hipótesis-con-una-muestra-simple">Remuestreo
-en pruebas de hipótesis con una muestra simple</a></li>
+<li><a href="#análisis-exploratorios"
+id="toc-análisis-exploratorios">Análisis Exploratorios</a></li>
 </ul>
 </nav>
 </div>
@@ -2129,19 +2130,28 @@ en pruebas de hipótesis con una muestra simple</a></li>
 una pantalla con los datos, luego dar click derecho y poner guardar como
 (save as). Guardar el txt donde van a trabajar</em></p>
 <div class="layout-chunk" data-layout="l-body">
-<a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/light.txt">
+<a href="https://github.com/gpandradep/Intro_est_inecol_website/blob/main/data/Palmer.xls">
 <button class="btn btn-primary"><i class="fa fa-save"></i> Descargar datos</button>
 </a>
 </div>
-<h1
-id="remuestreo-en-pruebas-de-hipótesis-con-una-muestra-simple">Remuestreo
-en pruebas de hipótesis con una muestra simple</h1>
-<p>Estos son datos de Michelson (1978) de medidas tomadas para estimar
-la velocidad de la luz que ahora sabemos es (299,792.458 km p seg).</p>
-<p>Use el cuerpo de datos contenidos en <code>light.txt</code> y
-utilizando el método de remuestreo calcule los intervalos de confianza
-(95%) de la media de la velocidad (speed). ¿El valor medio está dentro
-del intervalo de confianza del muestreo?</p>
+<h1 id="análisis-exploratorios">Análisis Exploratorios</h1>
+<p>La tabla de datos de <code>Palmer.csv</code> contiene los valores de
+importancia de 25 especies de briofitas (musgos y líquenes) creciendo en
+troncos de árboles en tres sitios en el Duke Forest, en Carolina del
+Norte. Los valores de importancia son una medida de abundancia relativa.
+Cada muestra representa el promedio de 10 árboles en un sitio dado. Los
+códigos de las muestras indican la especies de árbol y el sitio; BN =
+Betula nigra, abedul; LT = Liriodendron tulipifera, árbol de tulipán; PE
+= Pinus echinata, pino de hoja chica; PO = Platanus occidentalis, ficus;
+PT = Pinus taeda, pino hoja mediana; QR= Quercus rubra, encino rojo; QA=
+Quercus alba, encino blanco.</p>
+<ol type="1">
+<li><p>Plantear una pregunta sencilla y examinar, a partir del
+exploratorio establecer si tengo la información suficiente para
+contestar o no esa pregunta.</p></li>
+<li><p>Realizar un análisis exploratorio completo de los datos. Usando
+los datos de la tabla anterior.</p></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

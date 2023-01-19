@@ -62,7 +62,7 @@ airpoll2 <- stack(airpoll)
 ```
 
 ```{r echo=FALSE}
-knitr::kable(airpoll2)
+knitr::kable(head(airpoll2))
 ```
 
 ```{r}
@@ -70,6 +70,7 @@ filter(airpoll2, ind == "SO2") %>% #selecciono variable que me importa
   ggplot(aes(x= ind, y= values))+ # Creo la capa de datos
   geom_boxplot(outlier.color = "red", #color de outlier
                fill= "gray")+ # color de la caja
+#  geom_text(aes(label= values), position = position_dodge2(0.3))+
   labs(title = " Boxplot de SO2",
        y= " Valores",
        x= "")+
@@ -123,12 +124,12 @@ Ahora en conjunto
 
 ```{r}
 ggplot(airpoll2, aes(x=ind, y= log(values+1)))+
-  geom_jitter( aes(color=ind),width = 0.2, alpha= 0.8)+
+  geom_jitter( aes(color=ind),width = 0.2, alpha= 0.6)+
   geom_violin(aes(color=ind),
               scale = "width", 
               alpha= 0.1, # valor de opacidad
-              size= 1)+ # tamaño de la linea
-  geom_boxplot(width = 0.3, alpha= 0.1, size= 1,
+              size= 0.8)+ # tamaño de la linea
+  geom_boxplot(width = 0.3, alpha= 0.1, size= 0.8,
                outlier.color = "red",
                outlier.alpha = 0.9,
                outlier.size = 2)+
@@ -140,6 +141,40 @@ ggplot(airpoll2, aes(x=ind, y= log(values+1)))+
 ```
 
 Muchas más opciones en: https://www.r-graph-gallery.com/boxplot.html
+
+
+## Dotplots
+
+
+### Con base R
+```{r}
+dotchart(airpoll$SO2, 
+         ylab = "Order of observations", 
+         xlab = "SO2", 
+         main = "Cleveland dotplot")
+
+```
+
+### Modo ggplot
+
+```{r}
+d_plot <-  airpoll %>% 
+   mutate(index = seq(n())) %>%
+  select_if(is.numeric) %>% 
+  pivot_longer(cols = !index, 
+               names_to = "Variable", 
+               values_to = "Value") %>%
+  ggplot(aes(x= Value, y= index, col= Variable))+
+  geom_point(size= 2, alpha=0.6)+
+  scale_color_viridis_d(option = "mako", 
+                        begin = 0.1,
+                        end = 0.8)+
+  facet_wrap(~Variable, scales = "free")+
+  labs(y= "Order of ovservation")+
+   theme_bw()+
+   theme(legend.position = "none",
+         text = element_text(size=10))
+```
 
 ##  Histogramas 
 
@@ -154,8 +189,7 @@ hist(airpoll$Rainfall,lwd=2)
 ```{r}
 ggplot(airpoll, aes(x=Rainfall))+
   geom_histogram(bins =5, # número de breaks
-                 fill= "gray", color= "black",
-                 size= 0.9)+
+                 fill= "gray", color= "black")+
   labs(title= "Histograma",
        y= "Frequency")+
   theme_classic()
@@ -257,14 +291,14 @@ Necesito que mi base de datos este en formato largo junto con la columna de Ciud
 
 ```{r}
 airpoll4 <- airpoll %>% 
-  rownames_to_column(var= "City") %>% 
-  pivot_longer(cols = c(names(airpoll)),
-               names_to = "variable",
-               values_to = "valores")
+  rownames_to_column(var= "City") %>% # de nombres a columna
+  pivot_longer(cols = c(names(airpoll)), #Las columnas que bajo
+               names_to = "variable", # Nombre de la nueva column
+               values_to = "valores") # Nombre de col de valores
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-knitr::kable(airpoll4)
+knitr::kable(head(airpoll4))
 ```
 
 ```{r}
