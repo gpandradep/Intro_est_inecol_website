@@ -3,6 +3,7 @@ title: "Tarea 6"
 editor_options: 
   markdown: 
     wrap: 72
+bibliography: references.bib
 ---
 
 *NOTA: Para descargar los datos, dar click en el boton. Aparece una
@@ -28,12 +29,11 @@ download_link(
 
 Los datos de masas esqueléticas y corporales (todas en kg) del archivo
 `pesoaves.txt` fueron tomados al azar de un estudio más amplio realizado
-por Prange et al. (1979, American Naturalist 113: 103-122) donde
-analizaban la hipótesis de que las aves tienen esqueletos más ligeros
-que los mamíferos debido a su adaptación al vuelo. Las dos primeras
-columnas correponden a masas de esqueleto y de cuerpo de aves
-respectivamente. Las dos últimas columnas a masas esquelética y
-corporal, respectivamente, de mamíferos.
+por @prange1979 donde analizaban la hipótesis de que las aves tienen
+esqueletos más ligeros que los mamíferos debido a su adaptación al
+vuelo. Las dos primeras columnas correponden a masas de esqueleto y de
+cuerpo de aves respectivamente. Las dos últimas columnas a masas
+esquelética y corporal, respectivamente, de mamíferos.
 
 1.  Encuentra un modelo mínimo adecuado que represente la relación
     alométrica entre masa esquelética y masa corporal para aves por un

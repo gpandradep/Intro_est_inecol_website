@@ -17,9 +17,9 @@ author:
     url: https://www.researchgate.net/profile/Gabriel-Andrade-Ponce?ev=hdr_xprf
     affiliation: Posgrado - INECOL
     affiliation_url: https://gpandradep.github.io/gpandradep/
- #   orcid_id: 
+    orcid_id: 0000-0003-2416-1792
     
-date: Enero 16, 2022
+date: Enero 16, 2023
 site: distill::distill_website
 ---
 
