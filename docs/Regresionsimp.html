@@ -82,6 +82,27 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+<style>
+  div.csl-bib-body { }
+  div.csl-entry {
+    clear: both;
+    }
+  .hanging div.csl-entry {
+    margin-left:2em;
+    text-indent:-2em;
+  }
+  div.csl-left-margin {
+    min-width:2em;
+    float:left;
+  }
+  div.csl-right-inline {
+    margin-left:2em;
+    padding-left:1em;
+  }
+  div.csl-indent {
+    margin-left: 2em;
+  }
+</style>
 
   <!--radix_placeholder_meta_tags-->
   <title>Introducción a la estadística inferencial: Script Modelos lineales</title>
@@ -100,10 +121,13 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <meta property="twitter:title" content="Introducción a la estadística inferencial: Script Modelos lineales"/>
 
   <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Performance: An r package for assessment, comparison and testing of statistical models;citation_publication_date=2021;citation_volume=6;citation_doi=10.21105/joss.03139;citation_author=Daniel Lüdecke;citation_author=Mattan S. Ben-Shachar;citation_author=Indrajeet Patil;citation_author=Philip Waggoner;citation_author=Dominique Makowski"/>
+  <meta name="citation_reference" content="citation_title=Broom: Convert statistical objects into tidy tibbles;citation_publication_date=2022;citation_author=David Robinson;citation_author=Alex Hayes;citation_author=Simon Couch"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Script Modelos lineales"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","bibliography"]}},"value":[{"type":"character","attributes":{},"value":["Script Modelos lineales"]},{"type":"character","attributes":{},"value":["references.bib"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2074,6 +2098,7 @@ Scripts
 <a href="Estimacion2.html">Estimación 2</a>
 <a href="Estimacion2bis.html">Estimación 2 bis</a>
 <a href="Exploratorios.html">Exploratorios</a>
+<a href="Explor_ggplot.html">Exploratorios con ggplot</a>
 <a href="PanelCorrel.html">Paneles de correlación</a>
 <a href="Phunapob.html">Prueba de hipótesis 1</a>
 <a href="Phunapobbis.html">Prueba de hipótesis 1 bis</a>
@@ -2096,6 +2121,7 @@ Tareas
 <a href="Tarea_3.html">Tarea 3</a>
 <a href="Tarea_4.html">Tarea 4</a>
 <a href="Tarea_5.html">Tarea 5</a>
+<a href="Tarea_6.html">Tarea 6</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2140,9 +2166,9 @@ Tareas
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar script en pdf</button>
 </a>
 </div>
-<em>NOTA: Para descargar los datos, dar click en el boton. Aparece una
-pantalla con los datos, luego dar click derecho y poner guardar como
-(save as). Guardar el txt donde van a trabajar</em>
+<p><em>NOTA: Para descargar los datos, dar click en el boton. Aparece
+una pantalla con los datos, luego dar click derecho y poner guardar como
+(save as). Guardar el txt donde van a trabajar</em></p>
 <div class="layout-chunk" data-layout="l-body">
 <a href="https://raw.githubusercontent.com/gpandradep/Intro_est_inecol_website/main/data/tannin.txt">
 <button class="btn btn-danger"><i class="fa fa-save"></i> Descargar datos</button>
@@ -2231,7 +2257,7 @@ y de la línea ajustada <span class="math inline">\(\hat{y}\)</span>,
 <h1 id="r.3">R.3</h1>
 <p>Ahora bien, una tercera cantidad es la Suma de Cuadrados de la
 Regresión (es decir del efecto de la variable predictora)</p>
-<span class="math display">\[SCR = SCTotal - SCError\]</span>
+<p><span class="math display">\[SCR = SCTotal - SCError\]</span></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>tannin</span>, <span class='va'>growth</span>, type <span class='op'>=</span> <span class='st'>"n"</span><span class='op'>)</span> 
@@ -2435,6 +2461,69 @@ parámetros:</p>
 </div>
 <p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-23-1.png" width="624" /></p>
 </div>
+<p><strong>Extra</strong></p>
+<p>Una función muy interesante para evaluar un modelo es
+<code>check_model</code> del paquete <code>performance</code><span
+class="citation" data-cites="performance">(<a href="#ref-performance"
+role="doc-biblioref">Lüdecke et al. 2021</a>)</span>. Recuerda que
+puedes instalarlo así:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Debido a que performance requiere del paquete see para graficar, es bueno instalar ambos</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"performance"</span>, <span class='st'>"see"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Cargamos las librerias</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://easystats.github.io/performance/'>performance</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://easystats.github.io/see/'>see</a></span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>Ahora usamos la función</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/performance/reference/check_model.html'>check_model</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Regresionsimp_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+</div>
+<p>Si son fans de el diagnóstico numérico:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Por defecto usa los residuales estandarizados</span>
+<span class='fu'><a href='https://easystats.github.io/performance/reference/check_normality.html'>check_normality</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>OK: residuals appear as normally distributed (p = 0.990).</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/influence.measures.html'>rstandard</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  rstandard(Tanino)
+W = 0.98664, p-value = 0.9896</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/performance/reference/check_heteroscedasticity.html'>check_heteroskedasticity</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span> <span class='co'># Breusch-Pagan test (1979).</span>
+</code></pre>
+</div>
+<pre><code>OK: Error variance appears to be homoscedastic (p = 0.843).</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/performance/reference/check_outliers.html'>check_outliers</a></span><span class='op'>(</span><span class='va'>Tanino</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>OK: No outliers detected.
+- Based on the following method and threshold: cook (0.77).
+- For variable: (Whole model)</code></pre>
+</div>
 <p>Examinamos un modelo sin el dato extremo:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2462,6 +2551,41 @@ Multiple R-squared:  0.8446,    Adjusted R-squared:  0.8188
 F-statistic: 32.62 on 1 and 6 DF,  p-value: 0.001247</code></pre>
 </div>
 <p>No ganamos gran cosa</p>
+<p><strong><em>Extra</em></strong></p>
+<p>Podemos obtener los resultados del modelo lineal en formato de
+dataframe con el paquete <code>broom</code><span class="citation"
+data-cites="broom">(<a href="#ref-broom" role="doc-biblioref">Robinson,
+Hayes, and Couch 2022</a>)</span> y la función <code>tidy</code></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/install.packages.html'>install.packages</a></span><span class='op'>(</span><span class='st'>"broom"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span>
+<span class='va'>coeftable</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>Sindat7</span><span class='op'>)</span>
+<span class='va'>coeftable</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 2 x 5
+  term        estimate std.error statistic   p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)    11.7      0.896     13.0  0.0000125
+2 tannin[-7]     -1.12     0.196     -5.71 0.00125  </code></pre>
+</div>
+<p>De esta forma podemos reportarla de manera más ordenada en un
+documento Rmarkdown, Quarto o simplemente guardarla como un csv para
+luego copiarla a mano en un documento word</p>
+<p>Así se puede guardar</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span><span class='op'>(</span><span class='va'>coeftable</span>, <span class='co'># objeto a guardar</span>
+          file <span class='op'>=</span> <span class='st'>"modelo2.csv"</span><span class='op'>)</span> <span class='co'># nombre del archivo</span>
+</code></pre>
+</div>
+</div>
 <p>Para predecir valores usamos:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2477,16 +2601,32 @@ F-statistic: 32.62 on 1 and 6 DF,  p-value: 0.001247</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span><span class='op'>)</span> 
 </code></pre>
 </div>
-<pre><code>[1] &quot;i&quot;        &quot;modelito&quot; &quot;Nulo&quot;     &quot;reg.data&quot; &quot;Sindat7&quot;  &quot;Tanino&quot;  
-[7] &quot;ysomb&quot;   </code></pre>
+<pre><code>[1] &quot;coeftable&quot; &quot;i&quot;         &quot;modelito&quot;  &quot;Nulo&quot;      &quot;reg.data&quot; 
+[6] &quot;Sindat7&quot;   &quot;Tanino&quot;    &quot;ysomb&quot;    </code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span>list<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/ls.html'>ls</a></span><span class='op'>(</span>all<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb16"><pre
+<div class="sourceCode" id="cb21"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="doc-bibliography">
+<div id="ref-performance" class="csl-entry" role="doc-biblioentry">
+Lüdecke, Daniel, Mattan S. Ben-Shachar, Indrajeet Patil, Philip
+Waggoner, and Dominique Makowski. 2021.
+<span>“<span></span>Performance<span></span>: An
+<span></span>r<span></span> Package for Assessment, Comparison and
+Testing of Statistical Models”</span> 6: 3139. <a
+href="https://doi.org/10.21105/joss.03139">https://doi.org/10.21105/joss.03139</a>.
+</div>
+<div id="ref-broom" class="csl-entry" role="doc-biblioentry">
+Robinson, David, Alex Hayes, and Simon Couch. 2022. <span>“Broom:
+Convert Statistical Objects into Tidy Tibbles.”</span> <a
+href="https://CRAN.R-project.org/package=broom">https://CRAN.R-project.org/package=broom</a>.
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2507,7 +2647,10 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom"></div>
+<div class="appendix-bottom">
+<h3 id="references">References</h3>
+<div id="references-listing"></div>
+</div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

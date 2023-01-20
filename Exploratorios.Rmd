@@ -170,23 +170,29 @@ install.packages("datawizard")
 
 ¿Cómo se ve sin sesgo y curtosis?
 
+#### Simetría (*Skewness*)
+
+![](img/skew.png)
+
 ```{r warning=FALSE}
 library(datawizard)
 
 norm <- rnorm(1000) #Genero 1000 datos con distribución normal
 
-skewness(norm)
+sk <- skewness(norm)
+sk
 ```
 
 ```{r}
-kurtosis(norm)
+ku <- kurtosis(norm)
+ku
 ```
 
 ```{r}
 hist(norm, freq = F)
 lines(density(norm))
-text(x= -2, y=0.3, label= "Skewness = 0.123")
-text(x= 2, y=0.3, label= "Kurtosis = 0.09")
+text(x= -2, y=0.3, label= paste("Skewness =", round(sk$Skewness,2))) 
+text(x= 2, y=0.3, label= paste("Kurtosis =",  round(ku$Kurtosis,2)))
 ```
 
 Ahora con nuestros datos
@@ -213,6 +219,18 @@ hist(log(SO2+1),freq = F)
 lines(density(log(SO2+1)))
 text(x= 1, y=0.3, label= "Skewness = -0.43")
 text(x= 5, y=0.3, label= "Kurtosis = -0.45")
+```
+
+```{r}
+skewness(Mortality)
+kurtosis(Mortality)
+```
+
+```{r}
+hist(Mortality,freq = F)
+lines(density(Mortality))
+text(x= 800, y=0.005, label= "Skewness = 0.096")
+text(x= 1100, y=0.005, label= "Kurtosis = 0.156")
 ```
 
 ### QQplots

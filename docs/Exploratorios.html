@@ -2120,6 +2120,7 @@ Tareas
 <a href="Tarea_3.html">Tarea 3</a>
 <a href="Tarea_4.html">Tarea 4</a>
 <a href="Tarea_5.html">Tarea 5</a>
+<a href="Tarea_6.html">Tarea 6</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2398,34 +2399,38 @@ pruebas de kurtosis y simetria</p>
 </div>
 </div>
 <p>¿Cómo se ve sin sesgo y curtosis?</p>
+<h4 id="simetría-skewness">Simetría (<em>Skewness</em>)</h4>
+<p><img src="img/skew.png" /></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://easystats.github.io/datawizard/'>datawizard</a></span><span class='op'>)</span>
 
 <span class='va'>norm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>1000</span><span class='op'>)</span> <span class='co'>#Genero 1000 datos con distribución normal</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span>
+<span class='va'>sk</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span>
+<span class='va'>sk</span>
 </code></pre>
 </div>
 <pre><code>Skewness |    SE
 ----------------
-  -0.050 | 0.077</code></pre>
+   0.080 | 0.077</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ku</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span>
+<span class='va'>ku</span>
 </code></pre>
 </div>
 <pre><code>Kurtosis |    SE
 ----------------
-   0.153 | 0.154</code></pre>
+  -0.089 | 0.154</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>norm</span>, freq <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/density.html'>density</a></span><span class='op'>(</span><span class='va'>norm</span><span class='op'>)</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='op'>-</span><span class='fl'>2</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='st'>"Skewness = 0.123"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>2</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='st'>"Kurtosis = 0.09"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='op'>-</span><span class='fl'>2</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Skewness ="</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>sk</span><span class='op'>$</span><span class='va'>Skewness</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>2</span>, y<span class='op'>=</span><span class='fl'>0.3</span>, label<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"Kurtosis ="</span>,  <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>ku</span><span class='op'>$</span><span class='va'>Kurtosis</span>,<span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <p><img src="Exploratorios_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
@@ -2433,14 +2438,14 @@ pruebas de kurtosis y simetria</p>
 <p>Ahora con nuestros datos</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>Skewness |    SE
 ----------------
    1.912 | 0.301</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>Kurtosis |    SE
@@ -2459,14 +2464,14 @@ pruebas de kurtosis y simetria</p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>skewness</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>skewness</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>Skewness |    SE
 ----------------
   -0.443 | 0.301</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/datawizard/man/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>SO2</span><span class='op'>+</span><span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 <pre><code>Kurtosis |    SE
@@ -2483,6 +2488,32 @@ pruebas de kurtosis y simetria</p>
 </div>
 <p><img src="Exploratorios_files/figure-html5/unnamed-chunk-25-1.png" width="624" /></p>
 </div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>skewness</a></span><span class='op'>(</span><span class='va'>Mortality</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Skewness |    SE
+----------------
+   0.096 | 0.301</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://easystats.github.io/datawizard/reference/skewness.html'>kurtosis</a></span><span class='op'>(</span><span class='va'>Mortality</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Kurtosis |    SE
+----------------
+   0.156 | 0.559</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>Mortality</span>,freq <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/lines.html'>lines</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/density.html'>density</a></span><span class='op'>(</span><span class='va'>Mortality</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>800</span>, y<span class='op'>=</span><span class='fl'>0.005</span>, label<span class='op'>=</span> <span class='st'>"Skewness = 0.096"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span>x<span class='op'>=</span> <span class='fl'>1100</span>, y<span class='op'>=</span><span class='fl'>0.005</span>, label<span class='op'>=</span> <span class='st'>"Kurtosis = 0.156"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+</div>
 <h3 id="qqplots">QQplots</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2496,7 +2527,7 @@ pruebas de kurtosis y simetria</p>
 <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqnorm</a></span><span class='op'>(</span><span class='va'>Mortality</span>, main<span class='op'>=</span><span class='st'>"Q-Q plot Mortality"</span><span class='op'>)</span>; <span class='fu'><a href='https://rdrr.io/r/stats/qqnorm.html'>qqline</a></span><span class='op'>(</span><span class='va'>Mortality</span>, col <span class='op'>=</span> <span class='fl'>2</span>, lty <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-26-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
 </div>
 <h1 id="relaciones-bivariadas">Relaciones bivariadas</h1>
 <p>Veamos que relación hay entre las distintas variables. Aquí utilizo
@@ -2507,7 +2538,7 @@ con los propios datos que tipo de relación pudieran tener.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/pairs.html'>pairs</a></span><span class='op'>(</span><span class='va'>airpoll</span>, panel<span class='op'>=</span><span class='va'>panel.smooth</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-27-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-29-1.png" width="624" /></p>
 </div>
 <p>veamos con mas detalle la relación SO2-mortalidad</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2518,7 +2549,7 @@ con los propios datos que tipo de relación pudieran tener.</p>
 <span class='fu'><a href='https://rdrr.io/r/graphics/text.html'>text</a></span><span class='op'>(</span><span class='va'>SO2</span>,<span class='va'>Mortality</span>,labels<span class='op'>=</span><span class='va'>nombres</span>,lwd<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2563,7 +2594,7 @@ imputación?</p>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>59</span>, h <span class='op'>=</span> <span class='fl'>921.9</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-34-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-36-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2604,7 +2635,7 @@ F-statistic: 13.13 on 1 and 57 DF,  p-value: 0.0006196</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Mortality</span><span class='op'>~</span><span class='va'>SO2</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-36-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-38-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2654,7 +2685,7 @@ F-statistic: 20.19 on 1 and 57 DF,  p-value: 3.482e-05</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>58</span>, h <span class='op'>=</span> <span class='fl'>940.2161</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-39-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-41-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2662,7 +2693,7 @@ F-statistic: 20.19 on 1 and 57 DF,  p-value: 3.482e-05</code></pre>
 <span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>logM</span><span class='op'>~</span><span class='va'>logSO2</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
-<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-40-1.png" width="624" /></p>
+<p><img src="Exploratorios_files/figure-html5/unnamed-chunk-42-1.png" width="624" /></p>
 </div>
 <p>el valor de SO2 que corresponde al valor faltante de mortalidad es
 58. Como hemos generado un modelo de logaritmos a ambos lados de la
@@ -2697,7 +2728,7 @@ nos interesa retro transformar)</p>
 <p>El valor predicho por regresión lineal es? Cuales son los problemas
 asociados a esta imputación?</p>
 <h1 id="fin">Fin</h1>
-<div class="sourceCode" id="cb22"><pre
+<div class="sourceCode" id="cb24"><pre
 class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 role="doc-bibliography">

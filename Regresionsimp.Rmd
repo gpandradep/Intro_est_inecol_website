@@ -1,11 +1,11 @@
 ---
 title: "Script Modelos lineales"
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
 
 ```{r echo=FALSE}
 library(downloadthis)
@@ -34,8 +34,8 @@ download_link(
 )
 ```
 
-
 *NOTA: Para descargar los datos, dar click en el boton. Aparece una pantalla con los datos, luego dar click derecho y poner guardar como (save as). Guardar el txt donde van a trabajar*
+
 ```{r echo=FALSE}
 ## Link del script pdf
 download_link(
@@ -48,11 +48,9 @@ download_link(
 )
 ```
 
-
 # R.1
 
-Llamo los datos, los coloco en un dataframe y convierto las columnas en
-variables
+Llamo los datos, los coloco en un dataframe y convierto las columnas en variables
 
 ```{r eval=FALSE}
 reg.data<-read.table("tannin.txt",header=T)
@@ -92,7 +90,7 @@ La H0 no parece factible, entonces b es probablemente dif de 0 y negativa
 
 # C.1
 
-# R.2 
+# R.2
 
 Y la variación total de y es la dispersión de los datos alrededor de y barra.
 
@@ -120,11 +118,12 @@ for(i in 1:9) lines(c(tannin[i], tannin[i]), c(growth[i], ysomb[i]))
 
 # C.2
 
-# R.3 
+# R.3
 
 Ahora bien, una tercera cantidad es la Suma de Cuadrados de la Regresión (es decir del efecto de la variable predictora)
 
 $$SCR = SCTotal - SCError$$
+
 ```{r}
 plot(tannin, growth, type = "n") 
 abline(mean(growth), 0) 
@@ -137,7 +136,7 @@ points(tannin, growth)
 
 # C.3
 
-# R.4 
+# R.4
 
 Empezamos a ajustar los modelos: modelo nulo - solo la media
 
@@ -189,7 +188,6 @@ O bien pedimos la secuencia de ajustes, que produce estos cambios en devianza
 anova(Nulo, Tanino)
 ```
 
-
 ```{r}
 summary(Tanino)
 ```
@@ -204,9 +202,48 @@ reg.data
 
 Para inspeccionar qué tan bueno es el modelo existen algunos recursos gráficos donde se examinan la distribución de los residuales y los puntos extremos que que pueden "cargar" el valor numérico de los parámetros:
 
-```{r}
+```{r fig.height= 7}
 par(mfcol=c(2,2))
 plot(Tanino)
+```
+
+**Extra**
+
+Una función muy interesante para evaluar un modelo es `check_model` del paquete `performance`[@performance]. Recuerda que puedes instalarlo así:
+
+```{r message=FALSE, warning=FALSE, eval=FALSE}
+# Debido a que performance requiere del paquete see para graficar, es bueno instalar ambos
+install.packages(c("performance", "see"))
+```
+
+Cargamos las librerias
+
+```{r message=FALSE, warning=FALSE}
+library(performance)
+library(see)
+```
+
+Ahora usamos la función
+
+```{r fig.height= 7}
+check_model(Tanino)
+```
+
+Si son fans de el diagnóstico numérico:
+
+```{r}
+# Por defecto usa los residuales estandarizados
+check_normality(Tanino)
+shapiro.test(rstandard(Tanino)) 
+```
+
+```{r}
+check_heteroskedasticity(Tanino) # Breusch-Pagan test (1979).
+
+```
+
+```{r}
+check_outliers(Tanino)
 ```
 
 Examinamos un modelo sin el dato extremo:
@@ -215,14 +252,38 @@ Examinamos un modelo sin el dato extremo:
 Sindat7 <- lm(growth[-7] ~ tannin[-7]) 
 summary(Sindat7)
 ```
+
 No ganamos gran cosa
+
+***Extra***
+
+Podemos obtener los resultados del modelo lineal en formato de dataframe con el paquete `broom`[@broom] y la función `tidy`
+
+```{r eval=FALSE}
+install.packages("broom")
+```
+
+```{r message=FALSE, warning=FALSE}
+library(broom)
+coeftable <- tidy(Sindat7)
+coeftable
+
+```
+
+De esta forma podemos reportarla de manera más ordenada en un documento Rmarkdown, Quarto o simplemente guardarla como un csv para luego copiarla a mano en un documento word
+
+Así se puede guardar
+
+```{r eval=FALSE}
+write.csv(coeftable, # objeto a guardar
+          file = "modelo2.csv") # nombre del archivo
+```
 
 Para predecir valores usamos:
 
 ```{r}
 predict(Tanino, list(tannin =7.5))
 ```
-
 
 ```{r}
 par(mfrow=c(1,1)) 
