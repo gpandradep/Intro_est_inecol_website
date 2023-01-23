@@ -4,6 +4,9 @@ description: |
   Página del curso en su versión 2022
 output_dir: "docs"
 navbar:
+  left:
+   - text: "Links"
+     hreft: "links.html"
   right:
    - text: "Scripts"
      menu:

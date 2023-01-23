@@ -1,0 +1,33 @@
+---
+title: "Links de interés"
+
+---
+
+Aquí encontrarán links a recursos de interés para aprender sobre R, estadística y Ecología.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(reactablefmtr)
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+links <- read.csv2("Links_interes.csv")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+reactable(links,
+          theme = flatly(centered = TRUE, header_font_size = 16 ),
+          columns = list(
+          Logo= colDef(
+            name = "",
+            sortable = F,
+            style = background_img(
+              height = "30%",
+              width = "60%" )),
+          Enlace= colDef(
+            html = T
+          )
+          ))
+```
+
