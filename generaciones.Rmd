@@ -1,0 +1,11 @@
+---
+title: "Generaciones"
+---
+
+# Curso 2023
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, layout="l-page"}
+knitr::include_graphics("img/Gen_2023.png")
+
+```
+

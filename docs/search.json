@@ -50,6 +50,13 @@
       "last_modified": "2023-01-19T21:34:49-06:00"
     },
     {
+      "path": "generaciones.html",
+      "title": "Generaciones",
+      "author": [],
+      "contents": "\r\n\r\nContents\r\nCurso 2023\r\n\r\nCurso 2023\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2023-01-27T16:49:27-06:00"
+    },
+    {
       "path": "index.html",
       "title": "Introducción a la estadística inferencial",
       "description": "Página del curso en su versión 2023\n",
@@ -69,7 +76,7 @@
       ],
       "date": "Enero 16, 2023",
       "contents": "\r\n\r\nContents\r\n¡Bienvenidos al curso!🙌\r\nCronograma del curso 📆\r\nMaterial de la clase 📚\r\nScripts de\r\nclase 📊\r\nAdicional\r\n\r\n\r\n¡Bienvenidos al curso!🙌\r\nEste es la página del curso de Introducción a la estadística\r\ninferencial, versión 2023.\r\n\r\nCronograma del curso 📆\r\n\r\nMaterial de la clase 📚\r\nEl material del curso está disponible en la página de classroom, en\r\nlas siguientes ligas\r\nÉl\r\npapel de la estadística en la investigación\r\nIntroducción\r\nal Lenguaje R\r\nEstimación\r\n1 y 2\r\nAnálisis\r\nexploratorios\r\nPrueba\r\nde hipótesis 1 y 2\r\nModelos\r\nlineales 1 y 2\r\nScripts de clase 📊\r\nLos scripts pueden ser visualizados en html en la parte superior\r\nderecha de esta página.\r\n\r\nRecuerden que las bases de datos se encuentran en el material de\r\nclase\r\nAdicional\r\nMonitor del curso 2023\r\nGabriel P. Andrade Ponce 📧 gabriel.andrade@posgrado.ecologia.edu.mx\r\nEdición de Scripts y página web: Gabriel Andrade\r\nPonce\r\nPágina hecha con la paquetería distill en RMarkdown\r\n\r\n\r\n\r\n",
-      "last_modified": "2023-01-22T21:23:56-06:00"
+      "last_modified": "2023-01-27T16:38:10-06:00"
     },
     {
       "path": "links.html",

@@ -7,6 +7,8 @@ navbar:
   left:
    - text: "Links"
      hreft: "links.html"
+   - text: "Generaciones"
+     hreft: "generaciones.html"
   right:
    - text: "Scripts"
      menu:
